@@ -1,64 +1,55 @@
 package view;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.BorderLayout;
+import javax.swing.SwingConstants;
 
 public class index {
 
-	protected Shell index;
+	private JFrame index;
 
 	/**
 	 * Launch the application.
-	 * @param args
 	 */
 	public static void main(String[] args) {
-		try {
-			index window = new index();
-			window.open();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	/**
-	 * Open the window.
-	 */
-	public void open() {
-		Display display = Display.getDefault();
-		createContents();
-		index.open();
-		index.layout();
-		while (!index.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
-	}
-
-	/**
-	 * Create contents of the window.
-	 */
-	protected void createContents() {
-		index = new Shell();
-		index.setSize(371, 330);
-		index.setText("Index");
-		
-		Button btn_stock = new Button(index, SWT.NONE);
-		btn_stock.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					index window = new index();
+					window.index.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
-		btn_stock.setBounds(107, 59, 125, 35);
-		btn_stock.setText("Stock");
-		
-		Button btn_rdv = new Button(index, SWT.NONE);
-		btn_rdv.setText("Rendez-vous");
-		btn_rdv.setBounds(107, 167, 125, 35);
+	}
 
+	/**
+	 * Create the application.
+	 */
+	public index() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		index = new JFrame();
+		index.setTitle("Index");
+		index.setBounds(100, 100, 320, 250);
+		index.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		index.getContentPane().setLayout(null);
+		
+		JButton btn_stock = new JButton("Stock");
+		btn_stock.setBounds(79, 56, 136, 23);
+		index.getContentPane().add(btn_stock);
+		
+		JButton btn_rdv = new JButton("Rendez-vous");
+		btn_rdv.setBounds(79, 135, 136, 23);
+		index.getContentPane().add(btn_rdv);
 	}
 }

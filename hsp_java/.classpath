@@ -6,6 +6,11 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/GONCALVES_Na/Downloads/mysql-connector-java-8.0.16.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.osgi_3.16.100.v20201030-1916.jar" sourcepath="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.osgi_3.16.100.v20201030-1916.jar"/>
 	<classpathentry kind="lib" path="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.core.commands_3.9.800.v20201021-1339.jar" sourcepath="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.core.commands_3.9.800.v20201021-1339.jar"/>
 	<classpathentry kind="lib" path="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.equinox.common_3.14.0.v20201102-2053.jar" sourcepath="C:/Users/GONCALVES_Na/.p2/pool/plugins/org.eclipse.equinox.common_3.14.0.v20201102-2053.jar"/>
