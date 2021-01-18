@@ -9,7 +9,7 @@ import javax.swing.JTextField;
 
 public class connexion {
 
-	private JFrame connexion;
+	JFrame connexion;
 	private JTextField txt_id;
 	private JTextField txt_mdp;
 

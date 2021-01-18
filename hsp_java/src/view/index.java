@@ -6,6 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class index {
 
@@ -45,10 +47,24 @@ public class index {
 		index.getContentPane().setLayout(null);
 		
 		JButton btn_stock = new JButton("Stock");
+		btn_stock.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				index.dispose();
+				connexion window = new connexion();
+				window.connexion.setVisible(true);
+			}
+		});
 		btn_stock.setBounds(79, 56, 136, 23);
 		index.getContentPane().add(btn_stock);
 		
 		JButton btn_rdv = new JButton("Rendez-vous");
+		btn_rdv.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				index.dispose();
+				connexion window = new connexion();
+				window.connexion.setVisible(true);
+			}
+		});
 		btn_rdv.setBounds(79, 135, 136, 23);
 		index.getContentPane().add(btn_rdv);
 	}
