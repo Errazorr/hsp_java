@@ -6,12 +6,13 @@ import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 
 public class connexion {
 
 	JFrame connexion;
 	private JTextField txt_id;
-	private JTextField txt_mdp;
+	private JPasswordField lblPassword;
 
 	/**
 	 * Launch the application.
@@ -59,9 +60,12 @@ public class connexion {
 		connexion.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
-		txt_mdp = new JTextField();
-		txt_mdp.setColumns(10);
-		txt_mdp.setBounds(181, 152, 96, 20);
-		connexion.getContentPane().add(txt_mdp);
+		lblPassword = new JPasswordField();
+		lblPassword.setBounds(181, 152, 96, 17);
+		connexion.getContentPane().add(lblPassword);
+		
+		JButton btnConnexion = new JButton("Se connecter");
+		btnConnexion.setBounds(86, 200, 127, 23);
+		connexion.getContentPane().add(btnConnexion);
 	}
 }
