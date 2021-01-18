@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
+import java.awt.Color;
+import javax.swing.UIManager;
 
 public class connexion {
 
@@ -61,6 +63,7 @@ public class connexion {
 		txt_id.setColumns(10);
 		
 		lblPassword = new JPasswordField();
+		lblPassword.setBackground(Color.WHITE);
 		lblPassword.setBounds(181, 152, 96, 17);
 		connexion.getContentPane().add(lblPassword);
 		
