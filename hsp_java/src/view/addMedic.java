@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 
 public class addMedic {
 
-	private JFrame frmAjouterUnMdicament;
+	private JFrame Add;
 	private JTextField textName;
 	private JTextField textSupplier;
 	private JTextField textQuantity;
@@ -22,7 +22,7 @@ public class addMedic {
 			public void run() {
 				try {
 					addMedic window = new addMedic();
-					window.frmAjouterUnMdicament.setVisible(true);
+					window.Add.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -41,49 +41,49 @@ public class addMedic {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmAjouterUnMdicament = new JFrame();
-		frmAjouterUnMdicament.setTitle("Ajouter un m\u00E9dicament");
-		frmAjouterUnMdicament.setBounds(100, 100, 338, 306);
-		frmAjouterUnMdicament.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmAjouterUnMdicament.getContentPane().setLayout(null);
+		Add = new JFrame();
+		Add.setTitle("Ajouter un m\u00E9dicament");
+		Add.setBounds(100, 100, 338, 306);
+		Add.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Add.getContentPane().setLayout(null);
 		
 		JLabel lblMedicName = new JLabel("Nom");
 		lblMedicName.setBounds(63, 58, 54, 14);
-		frmAjouterUnMdicament.getContentPane().add(lblMedicName);
+		Add.getContentPane().add(lblMedicName);
 		
 		JLabel lblSupplier = new JLabel("Fabriquant");
 		lblSupplier.setBounds(32, 100, 85, 14);
-		frmAjouterUnMdicament.getContentPane().add(lblSupplier);
+		Add.getContentPane().add(lblSupplier);
 		
 		JLabel lblQuantity = new JLabel("Quantit\u00E9");
 		lblQuantity.setBounds(43, 141, 74, 14);
-		frmAjouterUnMdicament.getContentPane().add(lblQuantity);
+		Add.getContentPane().add(lblQuantity);
 		
 		JLabel lblPack = new JLabel("Lots de 50");
 		lblPack.setBounds(228, 141, 70, 14);
-		frmAjouterUnMdicament.getContentPane().add(lblPack);
+		Add.getContentPane().add(lblPack);
 		
 		JLabel lblPotentialDangers = new JLabel("Dangers potentiels");
 		lblPotentialDangers.setBounds(32, 178, 154, 14);
-		frmAjouterUnMdicament.getContentPane().add(lblPotentialDangers);
+		Add.getContentPane().add(lblPotentialDangers);
 		
 		textName = new JTextField();
 		textName.setBounds(110, 55, 96, 20);
-		frmAjouterUnMdicament.getContentPane().add(textName);
+		Add.getContentPane().add(textName);
 		textName.setColumns(10);
 		
 		textSupplier = new JTextField();
 		textSupplier.setColumns(10);
 		textSupplier.setBounds(110, 94, 96, 20);
-		frmAjouterUnMdicament.getContentPane().add(textSupplier);
+		Add.getContentPane().add(textSupplier);
 		
 		textQuantity = new JTextField();
 		textQuantity.setColumns(10);
 		textQuantity.setBounds(110, 135, 96, 20);
-		frmAjouterUnMdicament.getContentPane().add(textQuantity);
+		Add.getContentPane().add(textQuantity);
 		
 		JTextArea textPotentialDangers = new JTextArea();
 		textPotentialDangers.setBounds(28, 205, 239, 53);
-		frmAjouterUnMdicament.getContentPane().add(textPotentialDangers);
+		Add.getContentPane().add(textPotentialDangers);
 	}
 }
