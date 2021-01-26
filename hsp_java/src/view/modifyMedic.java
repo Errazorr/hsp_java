@@ -1,6 +1,11 @@
 package view;
 
 import java.awt.EventQueue;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import javax.swing.JTable;
@@ -8,12 +13,15 @@ import javax.swing.JList;
 import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import db_connexion.DbConnection;
+
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 public class modifyMedic {
 
 	private JFrame Modify;
-	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -52,10 +60,15 @@ public class modifyMedic {
 		lblName.setBounds(40, 40, 200, 14);
 		Modify.getContentPane().add(lblName);
 		
-		textField = new JTextField();
-		textField.setBounds(40, 65, 200, 20);
-		Modify.getContentPane().add(textField);
-		textField.setColumns(10);
+		JComboBox cb=new JComboBox();    
+	    cb.setBounds(40, 75,200,20);
+	    Modify.getContentPane().add(cb);
+	    
+	    DbConnection Connect = new DbConnection();
+	    Connection cnx = Connect.dbConnection();
+		System.out.println(Connect.dbConnection());
+		String requete = "Select nom from stock";
+		ResultSet result = Connect.Requete(cnx, requete);
 		
 		JButton btnChoix = new JButton("Modifier");
 		btnChoix.setBounds(100, 115, 89, 23);
