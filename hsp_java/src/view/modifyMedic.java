@@ -9,8 +9,7 @@ import javax.swing.JPasswordField;
 
 public class modifyMedic {
 
-	private JFrame frmModifierMdicament;
-	private JTable tableModifyMedic;
+	private JFrame Modify;
 
 	/**
 	 * Launch the application.
@@ -20,7 +19,7 @@ public class modifyMedic {
 			public void run() {
 				try {
 					modifyMedic window = new modifyMedic();
-					window.frmModifierMdicament.setVisible(true);
+					window.Modify.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,14 +38,10 @@ public class modifyMedic {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmModifierMdicament = new JFrame();
-		frmModifierMdicament.setTitle("Modifier m\u00E9dicament");
-		frmModifierMdicament.setBounds(100, 100, 714, 417);
-		frmModifierMdicament.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmModifierMdicament.getContentPane().setLayout(null);
-		
-		tableModifyMedic = new JTable();
-		tableModifyMedic.setBounds(25, 28, 646, 341);
-		frmModifierMdicament.getContentPane().add(tableModifyMedic);
+		Modify = new JFrame();
+		Modify.setTitle("Modifier m\u00E9dicament");
+		Modify.setBounds(100, 100, 714, 417);
+		Modify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Modify.getContentPane().setLayout(null);
 	}
 }
