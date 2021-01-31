@@ -11,6 +11,8 @@ import javax.swing.JTextField;
 import org.eclipse.swt.graphics.Image;
 
 import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class connexion {
 
@@ -61,6 +63,13 @@ public class connexion {
 		connexion.getContentPane().add(lblPassword);
 		
 		JButton btnConnexion = new JButton("Se connecter");
+		btnConnexion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				index.dispose();
+				connexion window = new connexion();
+				window.connexion.setVisible(true);
+			}
+		});
 		btnConnexion.setBounds(111, 274, 127, 23);
 		connexion.getContentPane().add(btnConnexion);
 		

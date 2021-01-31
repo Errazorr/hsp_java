@@ -78,4 +78,9 @@ public class index {
 		
 		
 	}
+
+	public static void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
 }
