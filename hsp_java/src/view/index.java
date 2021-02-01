@@ -10,7 +10,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import javax.swing.SwingConstants;
+
+import db_connexion.DbConnection;
+
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 
@@ -30,7 +35,6 @@ public class index extends global{
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-				System.out.println(id);
 			}
 		});
 	}
@@ -54,13 +58,26 @@ public class index extends global{
 		index.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		index.getContentPane().setLayout(null);
 		
+		DbConnection Connect = new DbConnection();
+	    Connection cnx = Connect.dbConnection();
+		System.out.println(Connect.dbConnection());
+		
 		JButton btn_stock = new JButton("Stock");
 		//btn_stock.setBackground(new Color(0, 255, 127));
 		btn_stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				index.dispose();
-				connexion window = new connexion();
-				window.connexion.setVisible(true);
+				String requete = "Select * from compte where id='" + id + "' and acces_stock= '1'";
+				ResultSet result = Connect.Requete(cnx, requete);
+				try {
+					while(result.next()) {
+						index.dispose();
+						connexion window = new connexion();
+						window.connexion.setVisible(true);	
+					}
+				}
+				catch (Exception ex) {
+					
+				}
 			}
 		});
 		btn_stock.setBounds(79, 56, 136, 23);
@@ -70,6 +87,18 @@ public class index extends global{
 		//btn_rdv.setBackground(new Color(255, 215, 0));
 		btn_rdv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String requete = "Select * from compte where id='" + id + "' and acces_rdv= '1'";
+				ResultSet result = Connect.Requete(cnx, requete);
+				try {
+					while(result.next()) {
+						index.dispose();
+						connexion window = new connexion();
+						window.connexion.setVisible(true);	
+					}
+				}
+				catch (Exception ex) {
+					
+				}
 				/*index.dispose();
 				connexion window = new connexion();
 				window.connexion.setVisible(true);*/

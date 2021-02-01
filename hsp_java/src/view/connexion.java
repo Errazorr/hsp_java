@@ -21,12 +21,13 @@ import db_connexion.DbConnection;
 import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class connexion extends global {
 
 	JFrame connexion;
 	private JTextField txt_id;
-	private JPasswordField lblPassword;
+	private JPasswordField PasswordField;
 
 	/**
 	 * Launch the application.
@@ -66,9 +67,9 @@ public class connexion extends global {
 		connexion.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
-		lblPassword = new JPasswordField();
-		lblPassword.setBounds(207, 191, 114, 20);
-		connexion.getContentPane().add(lblPassword);
+		PasswordField = new JPasswordField();
+		PasswordField.setBounds(207, 191, 114, 20);
+		connexion.getContentPane().add(PasswordField);
 		
 		JLabel label = new JLabel("Identifiant");
 		java.awt.Image img = new ImageIcon(this.getClass().getResource("/face.png")).getImage();
@@ -81,6 +82,11 @@ public class connexion extends global {
 		label2.setIcon(new ImageIcon(img1));
 		label2.setBounds(89, 173, 166, 56);
 		connexion.getContentPane().add(label2);
+
+		JLabel lblError = new JLabel("");
+		lblError.setForeground(Color.RED);
+		lblError.setBounds(89, 55, 232, 14);
+		connexion.getContentPane().add(lblError);
 		
 		JButton btnConnexion = new JButton("Se connecter");
 		btnConnexion.addActionListener(new ActionListener() {
@@ -89,12 +95,12 @@ public class connexion extends global {
 				DbConnection Connect = new DbConnection();
 			    Connection cnx = Connect.dbConnection();
 				System.out.println(Connect.dbConnection());
-				String requete = "Select * from compte where mail='" + txt_id.getText() + "'";
+				String requete = "Select * from compte where mail='" + txt_id.getText() + "' and mdp='" + PasswordField.getText() + "'";
 				ResultSet result = Connect.Requete(cnx, requete);
 				
 				try {
 					while(result.next()) {
-						System.out.println("Ca marche!");
+						System.out.println("Connecté !");
 						
 						requete = "Select id from compte where mail='" + txt_id.getText() + "'";
 						ResultSet result_id = Connect.Requete(cnx, requete);
@@ -107,10 +113,11 @@ public class connexion extends global {
 							result.close();
 						}
 					}
-					System.out.println("Ca marche pas...");
+					
+					lblError.setText("Mail ou mot de passe incorrect");
 				} 
 				catch (Exception ex) {
-					System.out.println(ex);
+					//System.out.println(ex);
 				}
 				
 			}
