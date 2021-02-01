@@ -101,11 +101,11 @@ public class connexion extends global {
 						while(result_id.next()) {
 							id = result_id.getInt(1);
 							result_id.close();
+							connexion.dispose();
+							index window = new index();
+							window.index.setVisible(true);
+							result.close();
 						}
-						connexion.dispose();
-						index window = new index();
-						window.index.setVisible(true);
-						result.close();
 					}
 					System.out.println("Ca marche pas...");
 				} 

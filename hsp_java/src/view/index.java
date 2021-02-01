@@ -30,6 +30,7 @@ public class index extends global{
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+				System.out.println(id);
 			}
 		});
 	}
@@ -69,9 +70,9 @@ public class index extends global{
 		//btn_rdv.setBackground(new Color(255, 215, 0));
 		btn_rdv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				index.dispose();
+				/*index.dispose();
 				connexion window = new connexion();
-				window.connexion.setVisible(true);
+				window.connexion.setVisible(true);*/
 			}
 		});
 		btn_rdv.setBounds(79, 135, 136, 23);
