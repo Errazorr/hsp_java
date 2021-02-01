@@ -1,16 +1,12 @@
 package view;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.UIManager;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
 import java.awt.Color;
 import java.awt.Button;
 import java.awt.event.ActionListener;
@@ -69,7 +65,7 @@ public class addRDV {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\rendez-vous.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\rendez-vous.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 426, 336);
 		panel.add(lblNewLabel_2);
 		
