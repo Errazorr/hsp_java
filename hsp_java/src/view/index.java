@@ -58,6 +58,16 @@ public class index extends global{
 		index.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		index.getContentPane().setLayout(null);
 		
+		JLabel lblError1 = new JLabel("");
+		lblError1.setForeground(Color.RED);
+		lblError1.setBounds(79, 31, 136, 14);
+		index.getContentPane().add(lblError1);
+		
+		JLabel lblError2 = new JLabel("");
+		lblError2.setForeground(Color.RED);
+		lblError2.setBounds(79, 110, 136, 14);
+		index.getContentPane().add(lblError2);
+		
 		DbConnection Connect = new DbConnection();
 	    Connection cnx = Connect.dbConnection();
 		System.out.println(Connect.dbConnection());
@@ -74,6 +84,8 @@ public class index extends global{
 						stock window = new stock();
 						window.Stock.setVisible(true);
 					}
+
+					lblError1.setText("Accès au stock refusé");
 				}
 				catch (Exception ex) {
 					
@@ -95,6 +107,7 @@ public class index extends global{
 						rdv window = new rdv();
 						window.Rdv.setVisible(true);
 					}
+					lblError2.setText("Accès aux rdv refusé");
 				}
 				catch (Exception ex) {
 					
