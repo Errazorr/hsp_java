@@ -65,7 +65,7 @@ public class addRDV {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\rendez-vous.jpg"));
+		lblNewLabel_2.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\rendez-vous.jpg"));
 		lblNewLabel_2.setBounds(0, 0, 426, 336);
 		panel.add(lblNewLabel_2);
 		
