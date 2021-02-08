@@ -58,7 +58,7 @@ public class connexion extends global {
 	 */
 	private void initialize() {
 		connexion = new JFrame();
-		connexion.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
+		connexion.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\GONCALVES_Na\\Pictures\\zIb0C.jpg"));
 		connexion.getContentPane().setBackground(Color.WHITE);
 		connexion.setTitle("Connexion");
 		connexion.setBounds(100, 100, 757, 505);
@@ -133,7 +133,7 @@ public class connexion extends global {
 		connexion.getContentPane().add(btnConnexion);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\zIb0C.jpg"));
 		lblNewLabel.setBounds(0, 0, 933, 615);
 		connexion.getContentPane().add(lblNewLabel);
 		
