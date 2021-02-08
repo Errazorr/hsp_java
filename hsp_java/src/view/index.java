@@ -70,9 +70,9 @@ public class index extends global{
 				ResultSet result = Connect.Requete(cnx, requete);
 				try {
 					while(result.next()) {
-						index.dispose();
+						/*index.dispose();
 						connexion window = new connexion();
-						window.connexion.setVisible(true);	
+						window.connexion.setVisible(true);	*/
 					}
 				}
 				catch (Exception ex) {
@@ -91,17 +91,14 @@ public class index extends global{
 				ResultSet result = Connect.Requete(cnx, requete);
 				try {
 					while(result.next()) {
-						index.dispose();
+						/*index.dispose();
 						connexion window = new connexion();
-						window.connexion.setVisible(true);	
+						window.connexion.setVisible(true);	*/
 					}
 				}
 				catch (Exception ex) {
 					
 				}
-				/*index.dispose();
-				connexion window = new connexion();
-				window.connexion.setVisible(true);*/
 			}
 		});
 		btn_rdv.setBounds(79, 135, 136, 23);

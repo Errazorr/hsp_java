@@ -21,7 +21,7 @@ import javax.swing.JComboBox;
 
 public class modifyMedic {
 
-	private JFrame Modify;
+	JFrame Modify;
 
 	/**
 	 * Launch the application.

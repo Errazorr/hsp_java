@@ -8,7 +8,7 @@ import java.awt.BorderLayout;
 
 public class stock {
 
-	private JFrame frmStock;
+	JFrame Stock;
 
 	/**
 	 * Launch the application.
@@ -18,7 +18,7 @@ public class stock {
 			public void run() {
 				try {
 					stock window = new stock();
-					window.frmStock.setVisible(true);
+					window.Stock.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -37,30 +37,30 @@ public class stock {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frmStock = new JFrame();
-		frmStock.setTitle("Stock");
-		frmStock.setBounds(100, 100, 220, 340);
-		frmStock.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmStock.getContentPane().setLayout(null);
+		Stock = new JFrame();
+		Stock.setTitle("Stock");
+		Stock.setBounds(100, 100, 220, 340);
+		Stock.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Stock.getContentPane().setLayout(null);
 		
 		JButton btnAdd = new JButton("Ajouter");
 		btnAdd.setBounds(40, 25, 115, 23);
-		frmStock.getContentPane().add(btnAdd);
+		Stock.getContentPane().add(btnAdd);
 		
 		JButton btnModifier = new JButton("Modifier");
 		btnModifier.setBounds(40, 76, 115, 23);
-		frmStock.getContentPane().add(btnModifier);
+		Stock.getContentPane().add(btnModifier);
 		
 		JButton btnSupprimer = new JButton("Supprimer");
 		btnSupprimer.setBounds(40, 122, 115, 23);
-		frmStock.getContentPane().add(btnSupprimer);
+		Stock.getContentPane().add(btnSupprimer);
 		
 		JButton btnAfficher = new JButton("Afficher");
 		btnAfficher.setBounds(40, 174, 115, 23);
-		frmStock.getContentPane().add(btnAfficher);
+		Stock.getContentPane().add(btnAfficher);
 		
 		JButton btnCommander = new JButton("Commander");
 		btnCommander.setBounds(40, 224, 115, 23);
-		frmStock.getContentPane().add(btnCommander);
+		Stock.getContentPane().add(btnCommander);
 	}
 }
