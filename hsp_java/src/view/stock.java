@@ -79,7 +79,7 @@ public class stock {
 		btnCommander.setBounds(52, 188, 115, 23);
 		Stock.getContentPane().add(btnCommander);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setBackground(Color.DARK_GRAY);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\pexels-photo-2310713.jpeg"));
 		lblNewLabel.setBounds(0, 0, 509, 398);
