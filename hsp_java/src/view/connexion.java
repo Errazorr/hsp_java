@@ -132,7 +132,7 @@ public class connexion extends global {
 		btnConnexion.setBounds(378, 332, 140, 31);
 		connexion.getContentPane().add(btnConnexion);
 		
-		JLabel lblNewLabel = new JLabel("New label");
+		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
 		lblNewLabel.setBounds(0, 0, 933, 615);
 		connexion.getContentPane().add(lblNewLabel);
