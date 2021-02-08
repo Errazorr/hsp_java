@@ -9,7 +9,7 @@ import javax.swing.JTextArea;
 
 public class modifyChosenMedic {
 
-	private JFrame ModifyChosen;
+	JFrame ModifyChosen;
 	private JTextField txtName;
 	private JTextField txtFabriquant;
 	private JTextField txtQty;

@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 public class deleteMedic {
 
-	private JFrame Delete;
+	JFrame Delete;
 
 	/**
 	 * Launch the application.
