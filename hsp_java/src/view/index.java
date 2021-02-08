@@ -70,9 +70,9 @@ public class index extends global{
 				ResultSet result = Connect.Requete(cnx, requete);
 				try {
 					while(result.next()) {
-						/*index.dispose();
-						connexion window = new connexion();
-						window.connexion.setVisible(true);	*/
+						index.dispose();
+						stock window = new stock();
+						window.Stock.setVisible(true);
 					}
 				}
 				catch (Exception ex) {
@@ -91,9 +91,9 @@ public class index extends global{
 				ResultSet result = Connect.Requete(cnx, requete);
 				try {
 					while(result.next()) {
-						/*index.dispose();
-						connexion window = new connexion();
-						window.connexion.setVisible(true);	*/
+						index.dispose();
+						rdv window = new rdv();
+						window.Rdv.setVisible(true);
 					}
 				}
 				catch (Exception ex) {
