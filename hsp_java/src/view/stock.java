@@ -109,24 +109,6 @@ public class stock {
 		btnSupprimer.setBounds(52, 245, 115, 23);
 		Stock.getContentPane().add(btnSupprimer);
 		
-		JButton btnAfficher = new JButton("Afficher");
-		btnAfficher.setBackground(Color.DARK_GRAY);
-		btnAfficher.setForeground(Color.WHITE);
-		btnAfficher.setBounds(52, 145, 115, 23);
-		Stock.getContentPane().add(btnAfficher);
-		
-		JButton btnCommander = new JButton("Commander");
-		btnCommander.setBackground(Color.DARK_GRAY);
-		btnCommander.setForeground(Color.WHITE);
-		btnCommander.setBounds(52, 188, 115, 23);
-		Stock.getContentPane().add(btnCommander);
-		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBackground(Color.DARK_GRAY);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\pexels-photo-2310713.jpeg"));
-		lblNewLabel.setBounds(0, 0, 509, 398);
-		Stock.getContentPane().add(lblNewLabel);
-		
 		JButton btnBack = new JButton("Retour");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -145,5 +127,25 @@ public class stock {
 		btnBack.setBackground(Color.DARK_GRAY);
 		btnBack.setBounds(225, 245, 115, 23);
 		Stock.getContentPane().add(btnBack);
+		
+		JButton btnAfficher = new JButton("Afficher");
+		btnAfficher.setBackground(Color.DARK_GRAY);
+		btnAfficher.setForeground(Color.WHITE);
+		btnAfficher.setBounds(52, 145, 115, 23);
+		Stock.getContentPane().add(btnAfficher);
+		
+		JButton btnCommander = new JButton("Commander");
+		btnCommander.setBackground(Color.DARK_GRAY);
+		btnCommander.setForeground(Color.WHITE);
+		btnCommander.setBounds(52, 188, 115, 23);
+		Stock.getContentPane().add(btnCommander);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBackground(Color.DARK_GRAY);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\pexels-photo-2310713.jpeg"));
+		lblNewLabel.setBounds(0, 0, 509, 398);
+		Stock.getContentPane().add(lblNewLabel);
+		
+		
 	}
 }
