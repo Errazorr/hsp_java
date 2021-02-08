@@ -22,6 +22,7 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 public class connexion extends global {
 
@@ -57,38 +58,44 @@ public class connexion extends global {
 	 */
 	private void initialize() {
 		connexion = new JFrame();
+		connexion.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
+		connexion.getContentPane().setBackground(Color.WHITE);
 		connexion.setTitle("Connexion");
-		connexion.setBounds(100, 100, 422, 402);
+		connexion.setBounds(100, 100, 757, 505);
 		connexion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		connexion.getContentPane().setLayout(null);
 		
 		txt_id = new JTextField();
-		txt_id.setBounds(207, 123, 114, 20);
+		txt_id.setBounds(378, 178, 140, 23);
 		connexion.getContentPane().add(txt_id);
 		txt_id.setColumns(10);
 		
 		PasswordField = new JPasswordField();
-		PasswordField.setBounds(207, 191, 114, 20);
+		PasswordField.setBounds(378, 258, 140, 23);
 		connexion.getContentPane().add(PasswordField);
 		
 		JLabel label = new JLabel("Identifiant");
+		label.setForeground(Color.WHITE);
 		java.awt.Image img = new ImageIcon(this.getClass().getResource("/face.png")).getImage();
 		label.setIcon(new ImageIcon(img));
-		label.setBounds(89, 105, 166, 56);
+		label.setBounds(206, 161, 166, 56);
 		connexion.getContentPane().add(label);
 		
 		JLabel label2 = new JLabel("Mot de passe");
+		label2.setForeground(Color.WHITE);
 		java.awt.Image img1 = new ImageIcon(this.getClass().getResource("/padlock.png")).getImage();
 		label2.setIcon(new ImageIcon(img1));
-		label2.setBounds(89, 173, 166, 56);
+		label2.setBounds(206, 241, 166, 56);
 		connexion.getContentPane().add(label2);
 
 		JLabel lblError = new JLabel("");
 		lblError.setForeground(Color.RED);
-		lblError.setBounds(89, 55, 232, 14);
+		lblError.setBounds(261, 122, 232, 14);
 		connexion.getContentPane().add(lblError);
 		
 		JButton btnConnexion = new JButton("Se connecter");
+		btnConnexion.setBackground(Color.DARK_GRAY);
+		btnConnexion.setForeground(Color.WHITE);
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -122,7 +129,14 @@ public class connexion extends global {
 				
 			}
 		});
-		btnConnexion.setBounds(111, 274, 127, 23);
+		btnConnexion.setBounds(378, 332, 140, 31);
 		connexion.getContentPane().add(btnConnexion);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
+		lblNewLabel.setBounds(0, 0, 933, 615);
+		connexion.getContentPane().add(lblNewLabel);
+		
+
 	}
 }
