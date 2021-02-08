@@ -116,10 +116,8 @@ public class addMedic {
 					while(result.next()) {
 						lblError.setText("Ce médicament est déjà enregistré");
 					}
-					System.out.println("test");
 					requete = "INSERT INTO stock(nom, fabricant, qte, danger) VALUES('" + textName.getText() + "', '" 
 							+ textSupplier.getText()  + "', '" + textQuantity.getText()  + "', '" + textPotentialDangers.getText() + "')";
-					System.out.println(requete);
 					Connect.Requete_prepare(cnx, requete);
 
 				}
@@ -130,6 +128,23 @@ public class addMedic {
 		});
 		btnAddMedic.setBounds(117, 290, 89, 23);
 		Add.getContentPane().add(btnAddMedic);
+		
+		JButton btnBack = new JButton("Retour");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+						Add.dispose();
+						stock window = new stock();
+						window.Stock.setVisible(true);
+					}
+
+				catch (Exception ex) {
+
+				}
+			}
+		});
+		btnBack.setBounds(0, 11, 89, 23);
+		Add.getContentPane().add(btnBack);
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\abstract-medical-wallpaper-template-design_53876-61802.jpg"));
