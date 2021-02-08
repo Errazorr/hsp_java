@@ -2,14 +2,10 @@ package view;
 
 import global_variable.*;
 import java.awt.EventQueue;
-import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import java.awt.BorderLayout;
-import javax.swing.SwingConstants;
 
 import db_connexion.DbConnection;
 
