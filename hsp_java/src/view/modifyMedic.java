@@ -55,29 +55,29 @@ public class modifyMedic {
 		Modify.setBounds(100, 100, 310, 200);
 		Modify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Modify.getContentPane().setLayout(null);
-		
+
 		JLabel lblName = new JLabel("Nom du m\u00E9dicament \u00E0 modifier");
 		lblName.setBounds(40, 40, 200, 14);
 		Modify.getContentPane().add(lblName);
-		
-	    DbConnection Connect = new DbConnection();
-	    Connection cnx = Connect.dbConnection();
+
+		DbConnection Connect = new DbConnection();
+		Connection cnx = Connect.dbConnection();
 		System.out.println(Connect.dbConnection());
 		String requete = "Select nom from stock";
 		ResultSet result = Connect.Requete(cnx, requete);
-		
+
 		JComboBox cb=new JComboBox();    
-	    cb.setBounds(40, 75,200,20);
-	    Modify.getContentPane().add(cb);
-	    
-	    try {
-	    while(result.next()) {
-	    	cb.addItem(result.getString(1).trim());
-	    }
-	    result.close();
-	    }
-	    catch (Exception ex) {System.out.println(ex);}
-		
+		cb.setBounds(40, 75,200,20);
+		Modify.getContentPane().add(cb);
+
+		try {
+			while(result.next()) {
+				cb.addItem(result.getString(1).trim());
+			}
+			result.close();
+		}
+		catch (Exception ex) {System.out.println(ex);}
+
 		JButton btnChoix = new JButton("Modifier");
 		btnChoix.setBounds(100, 115, 89, 23);
 		Modify.getContentPane().add(btnChoix);
