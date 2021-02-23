@@ -131,6 +131,13 @@ public class orderMedic {
 		JButton btnOrderNew = new JButton("Commander un nouveau m\u00E9dicament");
 		btnOrderNew.setBounds(10, 242, 314, 23);
 		order.getContentPane().add(btnOrderNew);
+		btnOrderNew.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				order.dispose();
+				addMedic window = new addMedic();
+				window.Add.setVisible(true);
+			}
+		});
 		
 		cb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
