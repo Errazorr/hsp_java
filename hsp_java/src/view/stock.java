@@ -148,6 +148,19 @@ public class stock {
 		});
 		
 		JButton btnCommander = new JButton("Commander");
+		btnCommander.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+						Stock.dispose();
+						orderMedic window = new orderMedic();
+						window.order.setVisible(true);
+					}
+
+				catch (Exception ex) {
+
+				}
+			}
+		});
 		btnCommander.setBackground(Color.DARK_GRAY);
 		btnCommander.setForeground(Color.WHITE);
 		btnCommander.setBounds(52, 188, 115, 23);

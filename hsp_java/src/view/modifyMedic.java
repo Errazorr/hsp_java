@@ -65,7 +65,6 @@ public class modifyMedic extends global {
 
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
-		System.out.println(Connect.dbConnection());
 		String requete = "Select nom from stock";
 		ResultSet result = Connect.Requete(cnx, requete);
 
