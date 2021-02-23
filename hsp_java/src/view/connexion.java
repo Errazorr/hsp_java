@@ -101,13 +101,12 @@ public class connexion extends global {
 				
 				DbConnection Connect = new DbConnection();
 			    Connection cnx = Connect.dbConnection();
-				System.out.println(Connect.dbConnection());
 				String requete = "Select * from compte where mail='" + txt_id.getText() + "' and mdp='" + PasswordField.getText() + "'";
 				ResultSet result = Connect.Requete(cnx, requete);
 				
 				try {
 					while(result.next()) {
-						System.out.println("Connecté !");
+						//System.out.println("Connecté !");
 						
 						requete = "Select id from compte where mail='" + txt_id.getText() + "'";
 						ResultSet result_id = Connect.Requete(cnx, requete);

@@ -45,14 +45,13 @@ public class deleteMedic extends global {
 	 */
 	private void initialize() {
 		Delete = new JFrame();
-		Delete.setTitle("Supprimer m\u00E9dicament");
+		Delete.setTitle("Supprimer un m\u00E9dicament");
 		Delete.setBounds(100, 100, 370, 269);
 		Delete.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Delete.getContentPane().setLayout(null);
 		
 		DbConnection Connect = new DbConnection();
 	    Connection cnx = Connect.dbConnection();
-		System.out.println(Connect.dbConnection());
 		String requete = "Select nom from stock";
 		ResultSet result = Connect.Requete(cnx, requete);
 

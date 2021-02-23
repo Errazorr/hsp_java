@@ -13,10 +13,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.awt.Color;
 
 public class confirmDeleteMedic extends global {
 
 	JFrame DeleteConfirm;
+	boolean success;
 
 	/**
 	 * Launch the application.
@@ -46,7 +48,7 @@ public class confirmDeleteMedic extends global {
 	 */
 	private void initialize() {
 		DeleteConfirm = new JFrame();
-		DeleteConfirm.setBounds(100, 100, 444, 246);
+		DeleteConfirm.setBounds(100, 100, 444, 276);
 		DeleteConfirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DeleteConfirm.getContentPane().setLayout(null);
 		
@@ -59,18 +61,30 @@ public class confirmDeleteMedic extends global {
 		DeleteConfirm.getContentPane().add(lblMedic);
 		lblMedic.setText(medic);
 		
+		JLabel lblSuccess = new JLabel("");
+		lblSuccess.setBounds(74, 138, 246, 14);
+		DeleteConfirm.getContentPane().add(lblSuccess);
+		
 		DbConnection Connect = new DbConnection();
 	    Connection cnx = Connect.dbConnection();
-		System.out.println(Connect.dbConnection());
 		
 		JButton btnDelete = new JButton("Valider");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String requete = "Delete from stock where nom='" + medic + "'";
-				Connect.Requete_prepare(cnx, requete);
+				success = Connect.Requete_prepare(cnx, requete);
+				
+				if (success == true) {
+					lblSuccess.setForeground(Color.GREEN);
+					lblSuccess.setText("Médicament supprimé avec succès");
+				}
+				else {
+					lblSuccess.setForeground(Color.RED);
+					lblSuccess.setText("Suppression échouée");
+				}
 			}
 		});
-		btnDelete.setBounds(74, 150, 89, 23);
+		btnDelete.setBounds(74, 190, 89, 23);
 		DeleteConfirm.getContentPane().add(btnDelete);
 		
 		JButton btnBack = new JButton("Retour");
@@ -81,7 +95,8 @@ public class confirmDeleteMedic extends global {
 				window.Delete.setVisible(true);
 			}
 		});
-		btnBack.setBounds(231, 150, 89, 23);
+		btnBack.setBounds(231, 190, 89, 23);
 		DeleteConfirm.getContentPane().add(btnBack);
+		
 	}
 }

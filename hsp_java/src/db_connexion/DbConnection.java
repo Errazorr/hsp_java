@@ -37,15 +37,16 @@ public class DbConnection {
 		return null;
 	}
 
-	public PreparedStatement Requete_prepare(Connection cnx, String requete) {
+	public boolean Requete_prepare(Connection cnx, String requete) {
 		try {
 			PreparedStatement pstm = cnx.prepareStatement(requete, Statement.RETURN_GENERATED_KEYS);
 			pstm.executeUpdate();
+			return true;
 		}
 		catch (SQLException e) {
 
 		}
-		return null;
+		return false;
 	}
 }
 
