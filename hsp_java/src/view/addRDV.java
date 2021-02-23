@@ -23,7 +23,7 @@ import java.awt.Font;
 
 public class addRDV {
 
-	private JFrame frame;
+	JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
 
