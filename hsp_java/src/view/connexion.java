@@ -105,7 +105,7 @@ public class connexion extends global {
 				ResultSet result = Connect.Requete(cnx, requete);
 				
 				try {
-					while(result.next()) {
+					while(result.next()) { // va parcourir chaque ligne du result
 						//System.out.println("Connecté !");
 						
 						requete = "Select id from compte where mail='" + txt_id.getText() + "'";
