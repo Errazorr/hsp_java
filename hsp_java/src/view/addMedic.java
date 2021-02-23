@@ -143,7 +143,7 @@ public class addMedic {
 				}
 			}
 		});
-		btnBack.setBounds(0, 11, 89, 23);
+		btnBack.setBounds(239, 11, 85, 20);
 		Add.getContentPane().add(btnBack);
 
 		JLabel lblNewLabel = new JLabel("New label");
