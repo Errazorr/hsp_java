@@ -133,6 +133,19 @@ public class stock {
 		btnAfficher.setForeground(Color.WHITE);
 		btnAfficher.setBounds(52, 145, 115, 23);
 		Stock.getContentPane().add(btnAfficher);
+		btnAfficher.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+						Stock.dispose();
+						displayMedic window = new displayMedic();
+						window.Display.setVisible(true);
+					}
+
+				catch (Exception ex) {
+
+				}
+			}
+		});
 		
 		JButton btnCommander = new JButton("Commander");
 		btnCommander.setBackground(Color.DARK_GRAY);
