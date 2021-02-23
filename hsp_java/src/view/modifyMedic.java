@@ -1,6 +1,8 @@
 package view;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.Connection;
@@ -14,12 +16,13 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import global_variable.*;
 import db_connexion.DbConnection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
-public class modifyMedic {
+public class modifyMedic extends global {
 
 	JFrame Modify;
 
@@ -52,7 +55,7 @@ public class modifyMedic {
 	private void initialize() {
 		Modify = new JFrame();
 		Modify.setTitle("Modifier m\u00E9dicament");
-		Modify.setBounds(100, 100, 310, 200);
+		Modify.setBounds(100, 100, 310, 235);
 		Modify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Modify.getContentPane().setLayout(null);
 
@@ -81,5 +84,31 @@ public class modifyMedic {
 		JButton btnChoix = new JButton("Modifier");
 		btnChoix.setBounds(100, 115, 89, 23);
 		Modify.getContentPane().add(btnChoix);
+		btnChoix.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				medic = cb.getSelectedItem().toString();
+				Modify.dispose();
+				modifyChosenMedic window = new modifyChosenMedic();
+				window.ModifyChosen.setVisible(true);
+			}
+		});
+		
+		JButton btnBack = new JButton("Retour");
+		btnBack.setBounds(100, 149, 89, 23);
+		Modify.getContentPane().add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Modify.dispose();
+					stock window = new stock();
+					window.Stock.setVisible(true);
+				}
+				
+				catch (Exception ex) {
+
+				}
+			}
+		});
+		
 	}
 }
