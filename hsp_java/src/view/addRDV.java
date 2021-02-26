@@ -76,6 +76,18 @@ public class addRDV {
 		lblNewLabel_3.setBounds(121, 373, 202, 59);
 		panel.add(lblNewLabel_3);
 		
+		JButton btnBack = new JButton("Retour");
+		btnBack.setBounds(10, 11, 89, 23);
+		panel.add(btnBack);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				rdv window = new rdv();
+				window.Rdv.setVisible(true);
+			}
+		});
+		btnBack.setForeground(Color.BLACK);
+		
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.setForeground(UIManager.getColor("Button.background"));
 		btnNewButton.setBackground(new Color(241, 57, 83));

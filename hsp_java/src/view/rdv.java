@@ -58,6 +58,13 @@ public class rdv {
 		Rdv.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Patient");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Rdv.dispose();
+				addProfil window = new addProfil();
+				window.frame.setVisible(true);
+			}
+		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBackground(Color.DARK_GRAY);
 		btnNewButton_1.setBounds(57, 140, 89, 23);
@@ -70,6 +77,19 @@ public class rdv {
 		Rdv.getContentPane().add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Add");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					Rdv.dispose();
+					addRDV window = new addRDV();
+					window.frame.setVisible(true);
+				}
+
+			catch (Exception ex) {
+
+			}
+			}
+		});
 		btnNewButton_3.setForeground(Color.WHITE);
 		btnNewButton_3.setBackground(Color.DARK_GRAY);
 		btnNewButton_3.setBounds(57, 72, 89, 23);
@@ -105,9 +125,18 @@ public class rdv {
 		lblNewLabel_4.setBounds(156, 178, 159, 14);
 		Rdv.getContentPane().add(lblNewLabel_4);
 		
-		JButton btnNewButton_5 = new JButton("D\u00E9connexion");
+		JButton btnNewButton_5 = new JButton("Retour");
+		btnNewButton_5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Rdv.dispose();
+				index window = new index();
+				window.index.setVisible(true);
+			}
+		});
+		btnNewButton_5.setForeground(Color.RED);
 		btnNewButton_5.setBackground(UIManager.getColor("ToolBar.dockingForeground"));
-		btnNewButton_5.setBounds(290, 229, 136, 23);
+		btnNewButton_5.setBounds(302, 229, 107, 23);
 		Rdv.getContentPane().add(btnNewButton_5);
 	}
+
 }

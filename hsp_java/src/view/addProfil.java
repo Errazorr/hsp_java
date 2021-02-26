@@ -28,6 +28,7 @@ public class addProfil {
 	private JTextField textSecu;
 	private JLabel lblError;
 	boolean success;
+	private JButton btnNewButton_1;
 
 	/**
 	 * Launch the application.
@@ -150,6 +151,17 @@ public class addProfil {
 		lblError = new JLabel("");
 		lblError.setBounds(322, 11, 49, 14);
 		frame.getContentPane().add(lblError);
+		
+		btnNewButton_1 = new JButton("Retour ");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				rdv window = new rdv();
+				window.Rdv.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(24, 341, 104, 23);
+		frame.getContentPane().add(btnNewButton_1);
 	}
 
 }
