@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import db_connexion.DbConnection;
+import javax.swing.JDesktopPane;
 
 public class displayMedic {
 

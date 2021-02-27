@@ -47,7 +47,7 @@ public class rdv {
 		Rdv = new JFrame();
 		Rdv.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Downloads\\face.png"));
 		Rdv.getContentPane().setBackground(Color.GRAY);
-		Rdv.setBounds(100, 100, 450, 300);
+		Rdv.setBounds(100, 100, 468, 318);
 		Rdv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Rdv.getContentPane().setLayout(null);
 		
@@ -71,6 +71,13 @@ public class rdv {
 		Rdv.getContentPane().add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("M\u00E9decins");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Rdv.dispose();
+				viewDoc window = new viewDoc();
+				window.frame.setVisible(true);
+			}
+		});
 		btnNewButton_2.setBackground(Color.DARK_GRAY);
 		btnNewButton_2.setForeground(Color.WHITE);
 		btnNewButton_2.setBounds(57, 106, 89, 23);

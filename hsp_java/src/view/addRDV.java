@@ -136,7 +136,7 @@ public class addRDV {
 		comboBox_1.setBounds(549, 386, 283, 22);
 		frame.getContentPane().add(comboBox_1);
 		frame.setBackground(UIManager.getColor("ToggleButton.highlight"));
-		frame.setBounds(100, 100, 933, 524);
+		frame.setBounds(100, 100, 936, 526);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 }
