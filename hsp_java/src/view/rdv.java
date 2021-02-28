@@ -120,9 +120,9 @@ public class rdv {
 		lblNewLabel_1.setBounds(35, 81, 159, 14);
 		Rdv.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Voir les disponibilit\u00E9s m\u00E9decins :");
+		JLabel lblNewLabel_2 = new JLabel("Médecins :");
 		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setBounds(253, 81, 177, 14);
+		lblNewLabel_2.setBounds(293, 81, 68, 14);
 		Rdv.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("Cr\u00E9er un profil pour patient :");

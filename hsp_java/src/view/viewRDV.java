@@ -15,10 +15,15 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class viewRDV {
 
 	 JFrame frame;
+	 private JTable table;
 
 	/**
 	 * Launch the application.
@@ -48,7 +53,7 @@ public class viewRDV {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 598, 433);
+		frame.setBounds(100, 100, 775, 569);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -56,7 +61,7 @@ public class viewRDV {
 		cb.setBounds(206, 61, 205, 22);
 		frame.getContentPane().add(cb);
 		
-		JLabel lblNewLabel = new JLabel("Date");
+		JLabel lblNewLabel = new JLabel("id");
 		lblNewLabel.setBounds(295, 36, 46, 14);
 		frame.getContentPane().add(lblNewLabel);
 		
@@ -119,6 +124,33 @@ public class viewRDV {
 		lblHeure.setBounds(357, 266, 94, 14);
 		frame.getContentPane().add(lblHeure);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(108, 325, 533, 177);
+		frame.getContentPane().add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Nom patient", "Pr\u00E9nom patient", "Mail", "Nom m\u00E9decin", "Date", "Heure"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, String.class, String.class, String.class, String.class, String.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+			boolean[] columnEditables = new boolean[] {
+				false, false, false, false, false, false
+			};
+			public boolean isCellEditable(int row, int column) {
+				return columnEditables[column];
+			}
+		});
+		scrollPane.setViewportView(table);
+		
 		
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
@@ -155,5 +187,4 @@ public class viewRDV {
 		});
 		
 	}
-
 }
