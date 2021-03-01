@@ -23,10 +23,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class JavaCrud {
 
-	private JFrame frame;
+	 JFrame frame;
 	private JTextField txtname;
 	private JTextField txtlastname;
 	private JTextField txtspeciality;
@@ -87,7 +89,7 @@ public class JavaCrud {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Enregistrement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(34, 108, 352, 238);
+		panel.setBounds(31, 192, 352, 238);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
@@ -127,6 +129,8 @@ public class JavaCrud {
 		ResultSet result = Connect.Requete(cnx, requete);
 		
 		JButton btnNewButton = new JButton("Ajouter");
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBackground(Color.GREEN);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -144,7 +148,7 @@ public class JavaCrud {
 					Connect.Requete_prepare(cnx, requete);
 
 					 JOptionPane.showMessageDialog(null, "Médecin ajouté !");
-					// table_load();
+					 table_load();
 					            
 					 txtname.setText("");
 					 txtlastname.setText("");
@@ -158,16 +162,14 @@ public class JavaCrud {
 										
 					        } } }
 		);
-		btnNewButton.setBounds(57, 369, 100, 37);
+		btnNewButton.setBounds(157, 441, 100, 37);
 		frame.getContentPane().add(btnNewButton);
 		
-		JButton btnEdit = new JButton("Exit");
-		btnEdit.setBounds(167, 369, 100, 37);
+		JButton btnEdit = new JButton("Retour");
+		btnEdit.setBackground(Color.RED);
+		btnEdit.setForeground(Color.WHITE);
+		btnEdit.setBounds(483, 441, 100, 37);
 		frame.getContentPane().add(btnEdit);
-		
-		JButton btnExit = new JButton("Actualiser");
-		btnExit.setBounds(277, 369, 100, 37);
-		frame.getContentPane().add(btnExit);
 		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(396, 114, 343, 292);
@@ -178,7 +180,7 @@ public class JavaCrud {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rechercher", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel_1.setBounds(34, 427, 343, 66);
+		panel_1.setBounds(31, 115, 352, 66);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -188,16 +190,146 @@ public class JavaCrud {
 		panel_1.add(lblNewLabel_1_1_1);
 		
 		txtid = new JTextField();
+		txtid.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
+
+				 
+				 try {
+					 
+						DbConnection Connect = new DbConnection();
+						Connection cnx = Connect.dbConnection();
+				           
+				             String id = txtid.getText();
+				 
+				             String requetes = "select nom, prenom, specialite from medecin where id = '" + id + "'";
+				                 
+				                 ResultSet resultat = Connect.Requete(cnx, requetes);
+				                 
+				                 //resultat.updateString(1, id);
+				 
+				             if(resultat.next()==true)
+				             {
+				               
+				                 String name = resultat.getString(1);
+				                 String lastname = resultat.getString(2);
+				                 String speciality = resultat.getString(3);
+				                 
+				                 txtname.setText(name);
+				                 txtlastname.setText(lastname);
+				                 txtspeciality.setText(speciality);
+				                 
+				                 
+				             }   
+				             else
+				             {
+				              txtname.setText("");
+				              txtlastname.setText("");
+				                 txtspeciality.setText("");
+				                  
+				             }
+				             
+				 
+				 
+				         } 
+				 
+				 catch (SQLException ex) {
+				            
+				         }
+			}
+		});
 		txtid.setBounds(142, 27, 173, 20);
 		txtid.setColumns(10);
 		panel_1.add(txtid);
 		
-		JButton btnUpdate = new JButton("Update");
-		btnUpdate.setBounds(469, 441, 100, 37);
+		JButton btnUpdate = new JButton("Mettre à jour");
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+				
+				String name,lastname,speciality,id;
+				
+				
+				name = txtname.getText();
+				lastname = txtlastname.getText();
+				speciality = txtspeciality.getText();
+				id  = txtid.getText();
+				
+				 try {
+					 
+					 
+					 String requetes2 = "update medecin set nom = '" + name + "', prenom = '" + lastname + "', specialite = '" + speciality + 
+							 "' where id = '" + id + "'";
+	                 
+					Connect.Requete_prepare(cnx, requetes2);
+	                
+	
+			            JOptionPane.showMessageDialog(null, "Compte mis à jour!");
+			            table_load();
+			           
+			            txtname.setText("");
+			            txtlastname.setText("");
+			            txtspeciality.setText("");
+			            txtname.requestFocus();
+					}
+
+		            catch (Exception ex) {
+						
+						
+					}
+	
+				
+				
+			}
+		});
+		btnUpdate.setForeground(Color.WHITE);
+		btnUpdate.setBackground(Color.BLUE);
+		btnUpdate.setBounds(47, 441, 100, 37);
 		frame.getContentPane().add(btnUpdate);
 		
-		JButton btnDelete = new JButton("Delete");
-		btnDelete.setBounds(589, 441, 100, 37);
+		JButton btnDelete = new JButton("Supprimer");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+                String bid;
+bid  = txtid.getText();
+
+try {
+
+	String requetes3 = "delete from medecin where id = '" + bid + "'";
+Connect.Requete_prepare(cnx, requetes3);
+     JOptionPane.showMessageDialog(null, "Record Delete!!!!!");
+     table_load();
+    
+     txtname.setText("");
+     txtlastname.setText("");
+     txtspeciality.setText("");
+     txtname.requestFocus();
+}
+
+     catch (Exception e1) {
+
+e1.printStackTrace();
+}
+				
+			}
+		});
+		btnDelete.setForeground(Color.WHITE);
+		btnDelete.setBackground(Color.RED);
+		btnDelete.setBounds(267, 441, 100, 37);
 		frame.getContentPane().add(btnDelete);
+		
+		JButton btnExit = new JButton("Actualiser");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				table_load();
+			}
+		});
+		btnExit.setForeground(Color.WHITE);
+		btnExit.setBackground(Color.ORANGE);
+		btnExit.setBounds(593, 441, 100, 37);
+		frame.getContentPane().add(btnExit);
 	}
 }
