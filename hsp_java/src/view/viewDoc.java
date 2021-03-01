@@ -84,7 +84,7 @@ public class viewDoc {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 765, 543);
+		frame.setBounds(100, 100, 766, 543);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
