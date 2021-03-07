@@ -13,6 +13,8 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class stock {
 
@@ -46,9 +48,10 @@ public class stock {
 	 */
 	private void initialize() {
 		Stock = new JFrame();
+		Stock.getContentPane().setBackground(Color.DARK_GRAY);
 		Stock.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
 		Stock.setTitle("Stock");
-		Stock.setBounds(100, 100, 515, 423);
+		Stock.setBounds(100, 100, 766, 543);
 		Stock.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Stock.getContentPane().setLayout(null);
 		
@@ -67,8 +70,8 @@ public class stock {
 			}
 		});
 		btnAdd.setForeground(Color.WHITE);
-		btnAdd.setBackground(Color.DARK_GRAY);
-		btnAdd.setBounds(225, 145, 115, 23);
+		btnAdd.setBackground(new Color(153, 51, 255));
+		btnAdd.setBounds(520, 97, 115, 23);
 		Stock.getContentPane().add(btnAdd);
 		
 		JButton btnModifier = new JButton("Modifier");
@@ -85,9 +88,9 @@ public class stock {
 				}
 			}
 		});
-		btnModifier.setBackground(Color.DARK_GRAY);
+		btnModifier.setBackground(new Color(153, 51, 255));
 		btnModifier.setForeground(Color.WHITE);
-		btnModifier.setBounds(225, 188, 115, 23);
+		btnModifier.setBounds(520, 177, 115, 23);
 		Stock.getContentPane().add(btnModifier);
 		
 		JButton btnSupprimer = new JButton("Supprimer");
@@ -104,9 +107,9 @@ public class stock {
 				}
 			}
 		});
-		btnSupprimer.setBackground(Color.RED);
+		btnSupprimer.setBackground(new Color(153, 51, 255));
 		btnSupprimer.setForeground(Color.WHITE);
-		btnSupprimer.setBounds(52, 245, 115, 23);
+		btnSupprimer.setBounds(520, 334, 115, 23);
 		Stock.getContentPane().add(btnSupprimer);
 		
 		JButton btnBack = new JButton("Retour");
@@ -124,14 +127,14 @@ public class stock {
 			}
 		});
 		btnBack.setForeground(Color.WHITE);
-		btnBack.setBackground(Color.DARK_GRAY);
-		btnBack.setBounds(225, 245, 115, 23);
+		btnBack.setBackground(Color.RED);
+		btnBack.setBounds(133, 455, 115, 23);
 		Stock.getContentPane().add(btnBack);
 		
 		JButton btnAfficher = new JButton("Afficher");
-		btnAfficher.setBackground(Color.DARK_GRAY);
+		btnAfficher.setBackground(new Color(153, 51, 255));
 		btnAfficher.setForeground(Color.WHITE);
-		btnAfficher.setBounds(52, 145, 115, 23);
+		btnAfficher.setBounds(520, 412, 115, 23);
 		Stock.getContentPane().add(btnAfficher);
 		btnAfficher.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -161,16 +164,72 @@ public class stock {
 				}
 			}
 		});
-		btnCommander.setBackground(Color.DARK_GRAY);
+		btnCommander.setBackground(new Color(153, 51, 255));
 		btnCommander.setForeground(Color.WHITE);
-		btnCommander.setBounds(52, 188, 115, 23);
+		btnCommander.setBounds(520, 256, 115, 23);
 		Stock.getContentPane().add(btnCommander);
 		
+		JLabel lblNewLabel_1 = new JLabel("Stock");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Vladimir Script", Font.PLAIN, 63));
+		lblNewLabel_1.setBounds(133, 145, 181, 189);
+		Stock.getContentPane().add(lblNewLabel_1);
+		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBackground(Color.DARK_GRAY);
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\pexels-photo-2310713.jpeg"));
-		lblNewLabel.setBounds(0, 0, 509, 398);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Downloads\\1.jpg"));
+		lblNewLabel.setBounds(0, 0, 391, 504);
 		Stock.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_2 = new JLabel("Ajouter un m\u00E9dicament :");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_2.setBounds(500, 64, 212, 34);
+		Stock.getContentPane().add(lblNewLabel_2);
+		
+		JSeparator separator = new JSeparator();
+		separator.setForeground(Color.WHITE);
+		separator.setBounds(450, 131, 262, 2);
+		Stock.getContentPane().add(separator);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Modifier un m\u00E9dicament :");
+		lblNewLabel_2_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_2_1.setBounds(500, 145, 212, 34);
+		Stock.getContentPane().add(lblNewLabel_2_1);
+		
+		JSeparator separator_1 = new JSeparator();
+		separator_1.setForeground(Color.WHITE);
+		separator_1.setBounds(450, 211, 262, 2);
+		Stock.getContentPane().add(separator_1);
+		
+		JLabel lblNewLabel_2_1_1 = new JLabel("Commander un m\u00E9dicament :\r\n");
+		lblNewLabel_2_1_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1_1.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_2_1_1.setBounds(485, 224, 212, 34);
+		Stock.getContentPane().add(lblNewLabel_2_1_1);
+		
+		JSeparator separator_1_1 = new JSeparator();
+		separator_1_1.setForeground(Color.WHITE);
+		separator_1_1.setBounds(450, 290, 262, 2);
+		Stock.getContentPane().add(separator_1_1);
+		
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("Supprimer un m\u00E9dicament :");
+		lblNewLabel_2_1_1_1.setForeground(Color.WHITE);
+		lblNewLabel_2_1_1_1.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_2_1_1_1.setBounds(485, 300, 212, 34);
+		Stock.getContentPane().add(lblNewLabel_2_1_1_1);
+		
+		JSeparator separator_1_1_1 = new JSeparator();
+		separator_1_1_1.setForeground(Color.WHITE);
+		separator_1_1_1.setBounds(450, 368, 262, 2);
+		Stock.getContentPane().add(separator_1_1_1);
+		
+		JLabel lblNewLabel_2_1_1_2 = new JLabel("Afficher un m\u00E9dicament :");
+		lblNewLabel_2_1_1_2.setForeground(Color.WHITE);
+		lblNewLabel_2_1_1_2.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_2_1_1_2.setBounds(500, 381, 197, 34);
+		Stock.getContentPane().add(lblNewLabel_2_1_1_2);
+		
 		
 		
 	}

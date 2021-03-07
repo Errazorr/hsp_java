@@ -313,7 +313,7 @@ try {
 
 	String requetes3 = "delete from medecin where id = '" + bid + "'";
 Connect.Requete_prepare(cnx, requetes3);
-     JOptionPane.showMessageDialog(null, "Record Delete!!!!!");
+     JOptionPane.showMessageDialog(null, "Compte supprimé !");
      table_load();
     
      txtname.setText("");
