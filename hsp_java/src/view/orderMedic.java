@@ -26,6 +26,8 @@ import db_connexion.DbConnection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 public class orderMedic {
 
 	JFrame order;
@@ -59,18 +61,21 @@ public class orderMedic {
 	 */
 	private void initialize() {
 		order = new JFrame();
+		order.getContentPane().setBackground(Color.DARK_GRAY);
 		order.setTitle("Commander");
-		order.setBounds(100, 100, 708, 375);
+		order.setBounds(100, 100, 766, 543);
 		order.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		order.getContentPane().setLayout(null);
 
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
 		String requete = "Select nom from stock";
 		ResultSet result = Connect.Requete(cnx, requete);
+		order.getContentPane().setLayout(null);
 
 		JComboBox cb = new JComboBox();
-		cb.setBounds(10, 31, 160, 22);
+		cb.setForeground(Color.WHITE);
+		cb.setBackground(Color.DARK_GRAY);
+		cb.setBounds(500, 106, 160, 22);
 		order.getContentPane().add(cb);
 
 		try {
@@ -82,58 +87,86 @@ public class orderMedic {
 		catch (Exception ex) {System.out.println(ex);}
 
 		JLabel lblManufacturer = new JLabel("Fabricant");
-		lblManufacturer.setBounds(10, 107, 60, 14);
+		lblManufacturer.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblManufacturer.setForeground(Color.WHITE);
+		lblManufacturer.setBounds(495, 177, 70, 22);
 		order.getContentPane().add(lblManufacturer);
+		
+		JLabel lblNewLabel_1 = new JLabel("Commander");
+		lblNewLabel_1.setForeground(Color.DARK_GRAY);
+		lblNewLabel_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
+		lblNewLabel_1.setBounds(56, 149, 297, 189);
+		order.getContentPane().add(lblNewLabel_1);
 
 		JLabel lblQty = new JLabel("Quantit\u00E9");
-		lblQty.setBounds(10, 145, 49, 14);
+		lblQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblQty.setForeground(Color.WHITE);
+		lblQty.setBounds(495, 210, 70, 22);
 		order.getContentPane().add(lblQty);
 
 		JLabel lblNewQty = new JLabel("");
-		lblNewQty.setBounds(195, 145, 49, 14);
+		lblNewQty.setBounds(419, 226, 49, 14);
 		order.getContentPane().add(lblNewQty);
 
 		JLabel lblOrderQty = new JLabel("Nbr de lots");
-		lblOrderQty.setBounds(10, 180, 95, 14);
+		lblOrderQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblOrderQty.setForeground(Color.WHITE);
+		lblOrderQty.setBounds(535, 253, 95, 28);
 		order.getContentPane().add(lblOrderQty);
 
 		JLabel lblActualQty = new JLabel("");
-		lblActualQty.setBounds(74, 145, 96, 14);
+		lblActualQty.setForeground(Color.CYAN);
+		lblActualQty.setBounds(579, 210, 96, 14);
 		order.getContentPane().add(lblActualQty);
 
 		txtOrderQty = new JTextField();
-		txtOrderQty.setBounds(115, 177, 96, 20);
+		txtOrderQty.setBounds(535, 274, 96, 20);
 		order.getContentPane().add(txtOrderQty);
 		txtOrderQty.setColumns(10);
 
 		JLabel lblLots = new JLabel("Lots de 50");
-		lblLots.setBounds(254, 180, 70, 14);
+		lblLots.setForeground(Color.WHITE);
+		lblLots.setBounds(655, 277, 70, 14);
 		order.getContentPane().add(lblLots);
 
 		JLabel lblLots_1 = new JLabel("Lots de 50");
-		lblLots_1.setBounds(254, 145, 70, 14);
+		lblLots_1.setForeground(Color.WHITE);
+		lblLots_1.setBounds(655, 211, 70, 14);
 		order.getContentPane().add(lblLots_1);
 
 		JLabel lblError = new JLabel("");
+		lblError.setBounds(234, 303, 160, 14);
 		lblError.setForeground(Color.GREEN);
-		lblError.setBounds(10, 222, 160, 14);
 		order.getContentPane().add(lblError);
 
 		JButton btnDisplayOrders = new JButton("Afficher commandes");
-		btnDisplayOrders.setBounds(10, 310, 314, 23);
+		btnDisplayOrders.setForeground(Color.WHITE);
+		btnDisplayOrders.setBackground(Color.DARK_GRAY);
+		btnDisplayOrders.setBounds(426, 408, 314, 23);
 		order.getContentPane().add(btnDisplayOrders);
 
 		JButton btnOrder = new JButton("Passer commande");
-		btnOrder.setBounds(10, 276, 314, 23);
+		btnOrder.setForeground(Color.WHITE);
+		btnOrder.setBackground(Color.DARK_GRAY);
+		btnOrder.setBounds(426, 363, 314, 23);
 		order.getContentPane().add(btnOrder);
 
 		JLabel lblManufacturerName = new JLabel("");
-		lblManufacturerName.setBounds(80, 107, 131, 14);
+		lblManufacturerName.setForeground(Color.CYAN);
+		lblManufacturerName.setBounds(575, 177, 131, 14);
 		order.getContentPane().add(lblManufacturerName);
 
 		JButton btnOrderNew = new JButton("Commander un nouveau m\u00E9dicament");
-		btnOrderNew.setBounds(10, 242, 314, 23);
+		btnOrderNew.setBackground(new Color(144, 238, 144));
+		btnOrderNew.setForeground(Color.WHITE);
+		btnOrderNew.setBounds(426, 315, 314, 23);
 		order.getContentPane().add(btnOrderNew);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Pictures\\medoc.jpg"));
+		lblNewLabel.setBounds(0, 0, 385, 504);
+		order.getContentPane().add(lblNewLabel);
+		
 		btnOrderNew.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				order.dispose();

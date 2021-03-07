@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 
 import global_variable.*;
 import javax.swing.JButton;
+import java.awt.Font;
 
 public class modifyChosenMedic extends global{
 
@@ -54,8 +55,10 @@ public class modifyChosenMedic extends global{
 	 */
 	private void initialize() {
 		ModifyChosen = new JFrame();
+		ModifyChosen.getContentPane().setBackground(Color.DARK_GRAY);
+		ModifyChosen.setBackground(Color.DARK_GRAY);
 		ModifyChosen.setTitle("Modifier m\u00E9dicament");
-		ModifyChosen.setBounds(100, 100, 338, 400);
+		ModifyChosen.setBounds(100, 100, 766, 543);
 		ModifyChosen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ModifyChosen.getContentPane().setLayout(null);
 
@@ -63,54 +66,69 @@ public class modifyChosenMedic extends global{
 		Connection cnx = Connect.dbConnection();
 
 		JLabel lblName = new JLabel("Nom");
-		lblName.setBounds(63, 58, 54, 14);
+		lblName.setForeground(Color.WHITE);
+		lblName.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblName.setBounds(339, 82, 39, 25);
 		ModifyChosen.getContentPane().add(lblName);
 
 		JLabel lblFabriquant = new JLabel("Fabriquant");
-		lblFabriquant.setBounds(32, 100, 85, 14);
+		lblFabriquant.setForeground(Color.WHITE);
+		lblFabriquant.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblFabriquant.setBounds(318, 137, 85, 25);
 		ModifyChosen.getContentPane().add(lblFabriquant);
 
 		JLabel lblQty = new JLabel("Quantit\u00E9");
-		lblQty.setBounds(43, 141, 74, 14);
+		lblQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblQty.setForeground(Color.WHITE);
+		lblQty.setBounds(325, 203, 78, 25);
 		ModifyChosen.getContentPane().add(lblQty);
 
 		JLabel lblLots = new JLabel("Lots de 50");
-		lblLots.setBounds(228, 141, 70, 14);
+		lblLots.setForeground(Color.WHITE);
+		lblLots.setBounds(425, 226, 70, 14);
 		ModifyChosen.getContentPane().add(lblLots);
 
 		JLabel lblDangers = new JLabel("Dangers potentiels");
-		lblDangers.setBounds(32, 178, 154, 14);
+		lblDangers.setForeground(Color.WHITE);
+		lblDangers.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblDangers.setBounds(295, 284, 174, 20);
 		ModifyChosen.getContentPane().add(lblDangers);
 
 		txtName = new JTextField();
-		txtName.setBounds(110, 55, 96, 20);
+		txtName.setBounds(310, 106, 96, 20);
 		ModifyChosen.getContentPane().add(txtName);
 		txtName.setColumns(10);
 
 		txtFabriquant = new JTextField();
 		txtFabriquant.setColumns(10);
-		txtFabriquant.setBounds(110, 94, 96, 20);
+		txtFabriquant.setBounds(310, 162, 96, 20);
 		ModifyChosen.getContentPane().add(txtFabriquant);
 
 		txtQty = new JTextField();
 		txtQty.setColumns(10);
-		txtQty.setBounds(110, 135, 96, 20);
+		txtQty.setBounds(307, 229, 104, 20);
 		ModifyChosen.getContentPane().add(txtQty);
 
 		JTextArea txtDangers = new JTextArea();
-		txtDangers.setBounds(32, 203, 240, 60);
+		txtDangers.setBounds(244, 314, 240, 60);
 		ModifyChosen.getContentPane().add(txtDangers);
 
 		JButton btnSave = new JButton("Enregistrer");
-		btnSave.setBounds(94, 274, 116, 23);
+		btnSave.setForeground(Color.WHITE);
+		btnSave.setBackground(Color.ORANGE);
+		btnSave.setBounds(307, 403, 116, 23);
 		ModifyChosen.getContentPane().add(btnSave);
 
 		JLabel lblSuccess = new JLabel("");
-		lblSuccess.setBounds(32, 33, 240, 14);
+		lblSuccess.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblSuccess.setForeground(Color.ORANGE);
+		lblSuccess.setBounds(227, 32, 305, 30);
 		ModifyChosen.getContentPane().add(lblSuccess);
 
 		JButton btnBack = new JButton("Retour");
-		btnBack.setBounds(110, 316, 89, 23);
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.RED);
+		btnBack.setBounds(318, 458, 89, 23);
 		ModifyChosen.getContentPane().add(btnBack);
 
 		String requete = "Select * from stock where nom='" + medic + "'";

@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.awt.Color;
+import java.awt.Font;
 
 public class confirmDeleteMedic extends global {
 
@@ -48,16 +49,21 @@ public class confirmDeleteMedic extends global {
 	 */
 	private void initialize() {
 		DeleteConfirm = new JFrame();
-		DeleteConfirm.setBounds(100, 100, 444, 276);
+		DeleteConfirm.getContentPane().setBackground(Color.DARK_GRAY);
+		DeleteConfirm.setBounds(100, 100, 766, 543);
 		DeleteConfirm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		DeleteConfirm.getContentPane().setLayout(null);
 		
 		JLabel lbl1 = new JLabel("Etes-vous sur de vouloir supprimer ce m\u00E9dicament ?");
-		lbl1.setBounds(74, 48, 296, 14);
+		lbl1.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lbl1.setForeground(Color.WHITE);
+		lbl1.setBounds(229, 140, 389, 38);
 		DeleteConfirm.getContentPane().add(lbl1);
 		
 		JLabel lblMedic = new JLabel("");
-		lblMedic.setBounds(74, 89, 246, 14);
+		lblMedic.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblMedic.setForeground(Color.CYAN);
+		lblMedic.setBounds(353, 213, 116, 38);
 		DeleteConfirm.getContentPane().add(lblMedic);
 		lblMedic.setText(medic);
 		
@@ -69,6 +75,8 @@ public class confirmDeleteMedic extends global {
 	    Connection cnx = Connect.dbConnection();
 		
 		JButton btnDelete = new JButton("Valider");
+		btnDelete.setForeground(Color.WHITE);
+		btnDelete.setBackground(Color.GRAY);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				String requete = "Delete from stock where nom='" + medic + "'";
@@ -84,10 +92,12 @@ public class confirmDeleteMedic extends global {
 				}
 			}
 		});
-		btnDelete.setBounds(74, 190, 89, 23);
+		btnDelete.setBounds(335, 262, 89, 23);
 		DeleteConfirm.getContentPane().add(btnDelete);
 		
 		JButton btnBack = new JButton("Retour");
+		btnBack.setBackground(Color.RED);
+		btnBack.setForeground(Color.WHITE);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DeleteConfirm.dispose();
@@ -95,7 +105,7 @@ public class confirmDeleteMedic extends global {
 				window.Delete.setVisible(true);
 			}
 		});
-		btnBack.setBounds(231, 190, 89, 23);
+		btnBack.setBounds(335, 344, 89, 23);
 		DeleteConfirm.getContentPane().add(btnBack);
 		
 	}

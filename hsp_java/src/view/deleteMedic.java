@@ -12,6 +12,10 @@ import db_connexion.DbConnection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
+import java.awt.Color;
 
 public class deleteMedic extends global {
 
@@ -45,10 +49,17 @@ public class deleteMedic extends global {
 	 */
 	private void initialize() {
 		Delete = new JFrame();
+		Delete.getContentPane().setBackground(Color.DARK_GRAY);
 		Delete.setTitle("Supprimer un m\u00E9dicament");
-		Delete.setBounds(100, 100, 370, 269);
+		Delete.setBounds(100, 100, 766, 543);
 		Delete.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Delete.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Supprimer");
+		lblNewLabel_1_1.setForeground(Color.RED);
+		lblNewLabel_1_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
+		lblNewLabel_1_1.setBounds(68, 147, 247, 189);
+		Delete.getContentPane().add(lblNewLabel_1_1);
 		
 		DbConnection Connect = new DbConnection();
 	    Connection cnx = Connect.dbConnection();
@@ -56,7 +67,9 @@ public class deleteMedic extends global {
 		ResultSet result = Connect.Requete(cnx, requete);
 
 		JComboBox cb=new JComboBox();    
-		cb.setBounds(84, 72,200,20);
+		cb.setForeground(Color.WHITE);
+		cb.setBackground(Color.DARK_GRAY);
+		cb.setBounds(486, 242,200,20);
 		Delete.getContentPane().add(cb);
 
 		try {
@@ -68,6 +81,8 @@ public class deleteMedic extends global {
 		catch (Exception ex) {System.out.println(ex);}
 
 		JButton btnDelete = new JButton("Supprimer");
+		btnDelete.setForeground(Color.WHITE);
+		btnDelete.setBackground(Color.RED);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				medic = cb.getSelectedItem().toString();
@@ -76,7 +91,20 @@ public class deleteMedic extends global {
 				window.DeleteConfirm.setVisible(true);
 			}
 		});
-		btnDelete.setBounds(111, 158, 130, 23);
+		btnDelete.setBounds(527, 305, 130, 23);
 		Delete.getContentPane().add(btnDelete);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Pictures\\medoc.jpg"));
+		lblNewLabel.setBounds(0, 0, 384, 504);
+		Delete.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Choisir le m\u00E9dicament \u00E0 supprimer");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblNewLabel_1.setBounds(475, 196, 237, 35);
+		Delete.getContentPane().add(lblNewLabel_1);
+		
+
 	}
 }

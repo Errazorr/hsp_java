@@ -15,6 +15,9 @@ import javax.swing.JTextArea;
 
 import db_connexion.DbConnection;
 import javax.swing.JDesktopPane;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 public class displayMedic {
 
@@ -48,16 +51,21 @@ public class displayMedic {
 	 */
 	private void initialize() {
 		Display = new JFrame();
+		Display.getContentPane().setBackground(Color.DARK_GRAY);
 		Display.setTitle("Afficher un m\u00E9dicament");
-		Display.setBounds(100, 100, 590, 435);
+		Display.setBounds(100, 100, 766, 543);
 		Display.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Display.getContentPane().setLayout(null);
 
 		JComboBox cb = new JComboBox();
-		cb.setBounds(10, 11, 150, 22);
+		cb.setForeground(Color.WHITE);
+		cb.setBackground(Color.DARK_GRAY);
+		cb.setBounds(507, 127, 150, 22);
 		Display.getContentPane().add(cb);
 
 		JButton btnBack = new JButton("Retour");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.RED);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Display.dispose();
@@ -65,44 +73,70 @@ public class displayMedic {
 				window.Stock.setVisible(true);
 			}
 		});
-		btnBack.setBounds(416, 11, 150, 23);
+		btnBack.setBounds(125, 438, 150, 23);
 		Display.getContentPane().add(btnBack);
 
 		JLabel lblName = new JLabel("Nom");
-		lblName.setBounds(10, 111, 49, 14);
+		lblName.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblName.setForeground(Color.WHITE);
+		lblName.setBounds(447, 204, 49, 22);
 		Display.getContentPane().add(lblName);
 
 		JLabel lblMedicName = new JLabel("");
-		lblMedicName.setBounds(111, 111, 151, 14);
+		lblMedicName.setForeground(Color.CYAN);
+		lblMedicName.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblMedicName.setBounds(557, 204, 162, 22);
 		Display.getContentPane().add(lblMedicName);
 
 		JLabel lblManufacturer = new JLabel("Fabricant");
-		lblManufacturer.setBounds(10, 151, 49, 14);
+		lblManufacturer.setForeground(Color.WHITE);
+		lblManufacturer.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblManufacturer.setBounds(447, 237, 80, 20);
 		Display.getContentPane().add(lblManufacturer);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Affichage");
+		lblNewLabel_1_1.setForeground(Color.CYAN);
+		lblNewLabel_1_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
+		lblNewLabel_1_1.setBounds(81, 150, 268, 189);
+		Display.getContentPane().add(lblNewLabel_1_1);
 
 		JLabel lblMedicManufacturer = new JLabel("");
-		lblMedicManufacturer.setBounds(111, 151, 151, 14);
+		lblMedicManufacturer.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblMedicManufacturer.setForeground(Color.CYAN);
+		lblMedicManufacturer.setBounds(557, 237, 162, 20);
 		Display.getContentPane().add(lblMedicManufacturer);
 
 		JLabel lblQty = new JLabel("Quantit\u00E9");
-		lblQty.setBounds(10, 187, 49, 14);
+		lblQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblQty.setForeground(Color.WHITE);
+		lblQty.setBounds(447, 275, 80, 22);
 		Display.getContentPane().add(lblQty);
 
 		JLabel lblMedicQty = new JLabel("");
-		lblMedicQty.setBounds(96, 187, 80, 14);
+		lblMedicQty.setForeground(Color.CYAN);
+		lblMedicQty.setBounds(557, 268, 100, 22);
 		Display.getContentPane().add(lblMedicQty);
 
 		JLabel lblLots = new JLabel("Lots de 50");
-		lblLots.setBounds(213, 187, 100, 14);
+		lblLots.setForeground(Color.WHITE);
+		lblLots.setBounds(650, 268, 100, 14);
 		Display.getContentPane().add(lblLots);
 
 		JLabel lblDanger = new JLabel("Dangers potentiels");
-		lblDanger.setBounds(10, 229, 252, 14);
+		lblDanger.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblDanger.setForeground(Color.WHITE);
+		lblDanger.setBounds(507, 308, 141, 31);
 		Display.getContentPane().add(lblDanger);
 
 		JTextArea txtDangers = new JTextArea();
-		txtDangers.setBounds(10, 254, 252, 69);
+		txtDangers.setBounds(447, 350, 252, 69);
 		Display.getContentPane().add(txtDangers);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Pictures\\medoc.jpg"));
+		lblNewLabel.setBounds(0, 0, 391, 504);
+		Display.getContentPane().add(lblNewLabel);
+	
 
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();

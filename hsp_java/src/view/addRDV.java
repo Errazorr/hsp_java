@@ -84,7 +84,8 @@ public class addRDV {
 		panel.add(lblNewLabel_3);
 		
 		JButton btnBack = new JButton("Retour");
-		btnBack.setBounds(10, 11, 89, 23);
+		btnBack.setBackground(Color.RED);
+		btnBack.setBounds(156, 11, 89, 23);
 		panel.add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,7 +94,7 @@ public class addRDV {
 				window.Rdv.setVisible(true);
 			}
 		});
-		btnBack.setForeground(Color.BLACK);
+		btnBack.setForeground(Color.WHITE);
 		
 		JLabel lblError = new JLabel("");
 		lblError.setBounds(180, 418, 49, 14);

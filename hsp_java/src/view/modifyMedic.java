@@ -21,6 +21,9 @@ import db_connexion.DbConnection;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.ImageIcon;
+import java.awt.Color;
+import java.awt.Font;
 
 public class modifyMedic extends global {
 
@@ -54,13 +57,22 @@ public class modifyMedic extends global {
 	 */
 	private void initialize() {
 		Modify = new JFrame();
+		Modify.getContentPane().setBackground(Color.DARK_GRAY);
 		Modify.setTitle("Modifier m\u00E9dicament");
-		Modify.setBounds(100, 100, 310, 235);
+		Modify.setBounds(100, 100, 766, 543);
 		Modify.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Modify.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Modifier");
+		lblNewLabel_1.setForeground(Color.ORANGE);
+		lblNewLabel_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
+		lblNewLabel_1.setBounds(86, 147, 247, 189);
+		Modify.getContentPane().add(lblNewLabel_1);
 
 		JLabel lblName = new JLabel("Nom du m\u00E9dicament \u00E0 modifier");
-		lblName.setBounds(40, 40, 200, 14);
+		lblName.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
+		lblName.setForeground(Color.WHITE);
+		lblName.setBounds(511, 195, 211, 33);
 		Modify.getContentPane().add(lblName);
 
 		DbConnection Connect = new DbConnection();
@@ -69,7 +81,9 @@ public class modifyMedic extends global {
 		ResultSet result = Connect.Requete(cnx, requete);
 
 		JComboBox cb=new JComboBox();    
-		cb.setBounds(40, 75,200,20);
+		cb.setBackground(Color.DARK_GRAY);
+		cb.setForeground(Color.WHITE);
+		cb.setBounds(511, 242,200,20);
 		Modify.getContentPane().add(cb);
 
 		try {
@@ -81,7 +95,8 @@ public class modifyMedic extends global {
 		catch (Exception ex) {System.out.println(ex);}
 
 		JButton btnChoix = new JButton("Modifier");
-		btnChoix.setBounds(100, 115, 89, 23);
+		btnChoix.setBackground(Color.ORANGE);
+		btnChoix.setBounds(563, 294, 89, 23);
 		Modify.getContentPane().add(btnChoix);
 		btnChoix.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -93,8 +108,17 @@ public class modifyMedic extends global {
 		});
 		
 		JButton btnBack = new JButton("Retour");
-		btnBack.setBounds(100, 149, 89, 23);
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.RED);
+		btnBack.setBounds(172, 440, 89, 23);
 		Modify.getContentPane().add(btnBack);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Pictures\\medoc.jpg"));
+		lblNewLabel.setBounds(0, 0, 410, 504);
+		Modify.getContentPane().add(lblNewLabel);
+		
+
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
