@@ -12,11 +12,12 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import global_variable.*;
 import db_connexion.DbConnection;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
 
 public class displayOrder {
 
 	JFrame dispOrder;
-	private JTable OrderTable;
 
 	/**
 	 * Launch the application.
@@ -46,9 +47,25 @@ public class displayOrder {
 	 */
 	private void initialize() {
 		dispOrder = new JFrame();
-		dispOrder.setBounds(100, 100, 923, 518);
+		dispOrder.setBounds(100, 100, 397, 518);
 		dispOrder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		dispOrder.getContentPane().setLayout(null);
+		
+		JComboBox cb = new JComboBox();
+		cb.setBounds(40, 36, 180, 22);
+		dispOrder.getContentPane().add(cb);
+		
+		JLabel lblManuf = new JLabel("Fabricant");
+		lblManuf.setBounds(23, 101, 80, 14);
+		dispOrder.getContentPane().add(lblManuf);
+		
+		JLabel lblQty = new JLabel("Quantit\u00E9 command\u00E9e");
+		lblQty.setBounds(23, 160, 135, 14);
+		dispOrder.getContentPane().add(lblQty);
+		
+		JLabel lblLots = new JLabel("Lots de 50");
+		lblLots.setBounds(150, 197, 70, 14);
+		dispOrder.getContentPane().add(lblLots);
 		
 		String[] columns = {"Médicament","Fabricant","Quantité","Daete"};
 		DbConnection Connect = new DbConnection();
@@ -63,9 +80,5 @@ public class displayOrder {
 			result.close();
 		}
 		catch (Exception ex) {System.out.println(ex);}
-		
-		OrderTable = new JTable();
-		OrderTable.setBounds(47, 69, 734, 331);
-		dispOrder.getContentPane().add(OrderTable);
 	}
 }
