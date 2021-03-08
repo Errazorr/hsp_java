@@ -114,7 +114,7 @@ public class modifyMedic extends global {
 		Modify.getContentPane().add(btnBack);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Pictures\\medoc.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\medoc.jpg"));
 		lblNewLabel.setBounds(0, 0, 410, 504);
 		Modify.getContentPane().add(lblNewLabel);
 		

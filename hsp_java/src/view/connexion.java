@@ -70,12 +70,12 @@ public class connexion extends global {
 		java.awt.Image img1 = new ImageIcon(this.getClass().getResource("/padlock.png")).getImage();
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\zIb0C.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
 		lblNewLabel.setBounds(0, 0, 379, 504);
 		connexion.getContentPane().add(lblNewLabel);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.GRAY);
+		panel.setBackground(Color.DARK_GRAY);
 		panel.setBounds(378, 0, 372, 504);
 		connexion.getContentPane().add(panel);
 		panel.setLayout(null);

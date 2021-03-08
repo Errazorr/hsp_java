@@ -176,8 +176,8 @@ public class stock {
 		Stock.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Ryan\\Downloads\\1.jpg"));
-		lblNewLabel.setBounds(0, 0, 391, 504);
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\1.jpg"));
+		lblNewLabel.setBounds(0, -27, 391, 564);
 		Stock.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_2 = new JLabel("Ajouter un m\u00E9dicament :");
