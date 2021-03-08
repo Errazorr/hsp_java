@@ -86,7 +86,7 @@ public class orderMedic {
 		JComboBox cb = new JComboBox();
 		cb.setForeground(Color.WHITE);
 		cb.setBackground(Color.DARK_GRAY);
-		cb.setBounds(500, 106, 160, 22);
+		cb.setBounds(495, 108, 160, 22);
 		order.getContentPane().add(cb);
 
 		try {
@@ -100,7 +100,7 @@ public class orderMedic {
 		JLabel lblManufacturer = new JLabel("Fabricant");
 		lblManufacturer.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
 		lblManufacturer.setForeground(Color.WHITE);
-		lblManufacturer.setBounds(495, 177, 70, 22);
+		lblManufacturer.setBounds(467, 174, 70, 22);
 		order.getContentPane().add(lblManufacturer);
 		
 		JLabel lblNewLabel_1 = new JLabel("Commander");
@@ -112,22 +112,23 @@ public class orderMedic {
 		JLabel lblQty = new JLabel("Quantit\u00E9");
 		lblQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
 		lblQty.setForeground(Color.WHITE);
-		lblQty.setBounds(495, 210, 70, 22);
+		lblQty.setBounds(467, 207, 70, 22);
 		order.getContentPane().add(lblQty);
 
 		JLabel lblNewQty = new JLabel("");
-		lblNewQty.setBounds(419, 226, 49, 14);
+		lblNewQty.setForeground(Color.CYAN);
+		lblNewQty.setBounds(547, 232, 84, 14);
 		order.getContentPane().add(lblNewQty);
 
 		JLabel lblOrderQty = new JLabel("Nbr de lots");
 		lblOrderQty.setFont(new Font("Yu Gothic", Font.PLAIN, 14));
 		lblOrderQty.setForeground(Color.WHITE);
-		lblOrderQty.setBounds(535, 253, 95, 28);
+		lblOrderQty.setBounds(442, 273, 95, 28);
 		order.getContentPane().add(lblOrderQty);
 
 		JLabel lblActualQty = new JLabel("");
 		lblActualQty.setForeground(Color.CYAN);
-		lblActualQty.setBounds(579, 210, 96, 14);
+		lblActualQty.setBounds(547, 207, 84, 14);
 		order.getContentPane().add(lblActualQty);
 
 		txtOrderQty = new JTextField();
@@ -142,15 +143,22 @@ public class orderMedic {
 
 		JLabel lblLots_1 = new JLabel("Lots de 50");
 		lblLots_1.setForeground(Color.WHITE);
-		lblLots_1.setBounds(655, 211, 70, 14);
+		lblLots_1.setBounds(655, 208, 70, 14);
 		order.getContentPane().add(lblLots_1);
 
 		JLabel lblError = new JLabel("");
-		lblError.setBounds(234, 303, 160, 14);
+		lblError.setBounds(426, 56, 314, 14);
 		lblError.setForeground(Color.GREEN);
 		order.getContentPane().add(lblError);
 
 		JButton btnDisplayOrders = new JButton("Afficher commandes");
+		btnDisplayOrders.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				order.dispose();
+				displayOrder window = new displayOrder();
+				window.dispOrder.setVisible(true);
+			}
+		});
 		btnDisplayOrders.setForeground(Color.WHITE);
 		btnDisplayOrders.setBackground(Color.DARK_GRAY);
 		btnDisplayOrders.setBounds(426, 408, 314, 23);
@@ -164,11 +172,11 @@ public class orderMedic {
 
 		JLabel lblManufacturerName = new JLabel("");
 		lblManufacturerName.setForeground(Color.CYAN);
-		lblManufacturerName.setBounds(575, 177, 131, 14);
+		lblManufacturerName.setBounds(547, 174, 131, 14);
 		order.getContentPane().add(lblManufacturerName);
 
 		JButton btnOrderNew = new JButton("Commander un nouveau m\u00E9dicament");
-		btnOrderNew.setBackground(new Color(144, 238, 144));
+		btnOrderNew.setBackground(Color.DARK_GRAY);
 		btnOrderNew.setForeground(Color.WHITE);
 		btnOrderNew.setBounds(426, 315, 314, 23);
 		order.getContentPane().add(btnOrderNew);
@@ -227,6 +235,7 @@ public class orderMedic {
 					String requete = "INSERT INTO commande(nom_medicament, fabricant, qte, date) VALUES('" + cb.getSelectedItem().toString() + "', '" 
 							+ lblManufacturerName.getText()  + "', '" + txtOrderQty.getText()  + "', '" + actualDate + "')";
 					Connect.Requete_prepare(cnx, requete);
+					lblError.setText("Commande passée avec succès");
 				}
 				catch (Exception ex) {
 
