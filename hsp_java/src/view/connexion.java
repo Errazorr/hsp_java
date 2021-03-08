@@ -69,6 +69,12 @@ public class connexion extends global {
 		java.awt.Image img = new ImageIcon(this.getClass().getResource("/face.png")).getImage();
 		java.awt.Image img1 = new ImageIcon(this.getClass().getResource("/padlock.png")).getImage();
 		
+		JLabel lblNewLabel_2 = new JLabel("Corazon App. \u00A9");
+		lblNewLabel_2.setForeground(Color.WHITE);
+		lblNewLabel_2.setFont(new Font("Sitka Banner", Font.PLAIN, 23));
+		lblNewLabel_2.setBounds(130, 231, 154, 54);
+		connexion.getContentPane().add(lblNewLabel_2);
+		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
 		lblNewLabel.setBounds(0, 0, 379, 504);
@@ -112,6 +118,7 @@ public class connexion extends global {
 				lblError.setBounds(99, 56, 232, 14);
 				panel.add(lblError);
 				lblError.setForeground(Color.RED);
+				
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
