@@ -33,9 +33,7 @@ public class orderMedic {
 	JFrame order;
 	private JTextField txtOrderQty;
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -65,6 +63,19 @@ public class orderMedic {
 		order.setTitle("Commander");
 		order.setBounds(100, 100, 766, 543);
 		order.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		JButton btnBack = new JButton("Retour");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setBackground(Color.RED);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				order.dispose();
+				stock window = new stock();
+				window.Stock.setVisible(true);
+			}
+		});
+		btnBack.setBounds(125, 438, 150, 23);
+		order.getContentPane().add(btnBack);
 
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
