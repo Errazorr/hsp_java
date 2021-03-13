@@ -48,7 +48,7 @@ public class rdv {
 	private void initialize() {
 		Rdv = new JFrame();
 		Rdv.getContentPane().setForeground(Color.WHITE);
-		Rdv.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Downloads\\face.png"));
+		Rdv.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\GONCALVES_Na\\Downloads\\face.png"));
 		Rdv.getContentPane().setBackground(Color.DARK_GRAY);
 		Rdv.setBounds(100, 100, 766, 543);
 		Rdv.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -157,7 +157,7 @@ public class rdv {
 		Rdv.getContentPane().add(btnNewButton_5);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\work.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\work.jpg"));
 		lblNewLabel.setBounds(0, 0, 409, 504);
 		Rdv.getContentPane().add(lblNewLabel);
 		

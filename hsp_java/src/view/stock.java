@@ -49,7 +49,7 @@ public class stock {
 	private void initialize() {
 		Stock = new JFrame();
 		Stock.getContentPane().setBackground(Color.DARK_GRAY);
-		Stock.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\FONTAINE_Ry\\Pictures\\zIb0C.jpg"));
+		Stock.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\GONCALVES_Na\\Pictures\\zIb0C.jpg"));
 		Stock.setTitle("Stock");
 		Stock.setBounds(100, 100, 766, 543);
 		Stock.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -176,7 +176,7 @@ public class stock {
 		Stock.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\1.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\1.jpg"));
 		lblNewLabel.setBounds(0, -27, 391, 564);
 		Stock.getContentPane().add(lblNewLabel);
 		

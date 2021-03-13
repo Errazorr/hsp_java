@@ -78,7 +78,7 @@ public class index extends global{
 		lblError2.setForeground(Color.RED);
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\work.jpg"));
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\work.jpg"));
 		lblNewLabel_1.setBounds(0, 0, 381, 504);
 		panel.add(lblNewLabel_1);
 		//btn_rdv.setBackground(new Color(255, 215, 0));
@@ -118,7 +118,7 @@ public class index extends global{
 		lblError1.setForeground(Color.RED);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\FONTAINE_Ry\\Pictures\\stock$.jpg"));
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\stock$.jpg"));
 		lblNewLabel.setBounds(0, 0, 370, 504);
 		panel_1.add(lblNewLabel);
 		//btn_stock.setBackground(new Color(0, 255, 127));
