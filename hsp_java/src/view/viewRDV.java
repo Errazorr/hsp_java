@@ -1,32 +1,43 @@
 package view;
 
-import java.awt.EventQueue;
+import java.awt.EventQueue; 
+import java.sql.*;
 
 import javax.swing.JFrame;
-import javax.swing.JComboBox;
-import java.awt.BorderLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.BorderLayout;
+import java.awt.Font;
+import javax.swing.JPanel;
+import javax.swing.border.TitledBorder;
 
 import db_connexion.DbConnection;
+import net.proteanit.sql.DbUtils;
 
+import javax.swing.JTextField;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
-import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class viewRDV {
 
 	 JFrame frame;
-	 private JTable table;
+	private JTextField txtname;
+	private JTextField txtlastname;
+	private JTextField txtspeciality;
+	private JTable table;
+	private JTextField txtid;
 
 	/**
 	 * Launch the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -43,148 +54,212 @@ public class viewRDV {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.entryPoint
 	 */
 	public viewRDV() {
 		initialize();
+		table_load();
 	}
+	
 
+	  /**
+	   * @wbp.parser.entryPoint
+	   */
+	  public void table_load()
+		    {
+			DbConnection Connect = new DbConnection();
+			Connection cnx = Connect.dbConnection();
+			String requete = "Select * from rdv";
+			ResultSet result = Connect.Requete(cnx, requete);
+			
+			table.setModel(DbUtils.resultSetToTableModel(result));
+			
+			
+		    }
+
+	
 	/**
 	 * Initialize the contents of the frame.
+	 * @wbp.parser.entryPoint
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 775, 569);
+		frame.setBounds(100, 100, 766, 543);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JComboBox cb = new JComboBox();
-		cb.setBounds(206, 61, 205, 22);
-		frame.getContentPane().add(cb);
-		
-		JLabel lblNewLabel = new JLabel("id");
-		lblNewLabel.setBounds(295, 36, 46, 14);
+		JLabel lblNewLabel = new JLabel("M\u00E9decin");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lblNewLabel.setBounds(327, 38, 130, 37);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Retour");
-		btnNewButton.addActionListener(new ActionListener() {
+		JPanel panel = new JPanel();
+		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Enregistrement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBounds(31, 192, 176, 238);
+		frame.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nom");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1.setBounds(10, 52, 104, 28);
+		panel.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("Pr\u00E9nom");
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_1.setBounds(10, 113, 104, 28);
+		panel.add(lblNewLabel_1_1);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("Sp\u00E9cialit\u00E9");
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel_1_2.setBounds(10, 175, 104, 28);
+		panel.add(lblNewLabel_1_2);
+		
+		txtname = new JTextField();
+		txtname.setBounds(83, 58, 67, 20);
+		panel.add(txtname);
+		txtname.setColumns(10);
+		
+		txtlastname = new JTextField();
+		txtlastname.setColumns(10);
+		txtlastname.setBounds(83, 119, 67, 20);
+		panel.add(txtlastname);
+		
+		txtspeciality = new JTextField();
+		txtspeciality.setColumns(10);
+		txtspeciality.setBounds(83, 181, 67, 20);
+		panel.add(txtspeciality);
+		
+		DbConnection Connect = new DbConnection();
+		Connection cnx = Connect.dbConnection();
+		String requete = "Select nom from medecin";
+		ResultSet result = Connect.Requete(cnx, requete);
+		
+		JButton btnEdit = new JButton("Retour");
+		btnEdit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 				rdv window = new rdv();
 				window.Rdv.setVisible(true);
 			}
 		});
-		btnNewButton.setBounds(483, 11, 89, 23);
-		frame.getContentPane().add(btnNewButton);
-		
-		JLabel lblNewLabel_1 = new JLabel("Nom patient");
-		lblNewLabel_1.setBounds(133, 142, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_1_1 = new JLabel("Pr\u00E9nom patient");
-		lblNewLabel_1_1.setBounds(133, 166, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1_1);
-		
-		JLabel lblNewLabel_1_2 = new JLabel("Mail\r\n");
-		lblNewLabel_1_2.setBounds(133, 191, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1_2);
-		
-		JLabel lblNewLabel_1_3 = new JLabel("Nom m\u00E9decin\r\n");
-		lblNewLabel_1_3.setBounds(133, 216, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1_3);
-		
-		JLabel lblNewLabel_1_4 = new JLabel("Date");
-		lblNewLabel_1_4.setBounds(133, 241, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1_4);
-		
-		JLabel lblNewLabel_1_5 = new JLabel("Heure");
-		lblNewLabel_1_5.setBounds(133, 266, 94, 14);
-		frame.getContentPane().add(lblNewLabel_1_5);
-		
-		JLabel lblName = new JLabel("");
-		lblName.setBounds(357, 142, 94, 14);
-		frame.getContentPane().add(lblName);
-		
-		JLabel lblLastName = new JLabel("");
-		lblLastName.setBounds(357, 166, 94, 14);
-		frame.getContentPane().add(lblLastName);
-		
-		JLabel lblMail = new JLabel("");
-		lblMail.setBounds(357, 191, 94, 14);
-		frame.getContentPane().add(lblMail);
-		
-		JLabel lblNameDoc = new JLabel("");
-		lblNameDoc.setBounds(357, 216, 94, 14);
-		frame.getContentPane().add(lblNameDoc);
-		
-		JLabel lblDate = new JLabel("");
-		lblDate.setBounds(357, 241, 94, 14);
-		frame.getContentPane().add(lblDate);
-		
-		JLabel lblHeure = new JLabel("");
-		lblHeure.setBounds(357, 266, 94, 14);
-		frame.getContentPane().add(lblHeure);
+		btnEdit.setBackground(Color.RED);
+		btnEdit.setForeground(Color.WHITE);
+		btnEdit.setBounds(483, 441, 100, 37);
+		frame.getContentPane().add(btnEdit);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(108, 325, 533, 177);
+		scrollPane.setBounds(217, 114, 522, 316);
 		frame.getContentPane().add(scrollPane);
 		
 		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Nom patient", "Pr\u00E9nom patient", "Mail", "Nom m\u00E9decin", "Date", "Heure"
-			}
-		) {
-			Class[] columnTypes = new Class[] {
-				String.class, String.class, String.class, String.class, String.class, String.class
-			};
-			public Class getColumnClass(int columnIndex) {
-				return columnTypes[columnIndex];
-			}
-			boolean[] columnEditables = new boolean[] {
-				false, false, false, false, false, false
-			};
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
-		});
 		scrollPane.setViewportView(table);
 		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rechercher", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBounds(31, 115, 176, 66);
+		frame.getContentPane().add(panel_1);
+		panel_1.setLayout(null);
 		
-		DbConnection Connect = new DbConnection();
-		Connection cnx = Connect.dbConnection();
-		String requete = "Select id from rdv";
-		ResultSet result = Connect.Requete(cnx, requete);
+		JLabel lblNewLabel_1_1_1 = new JLabel("id");
+		lblNewLabel_1_1_1.setBounds(10, 25, 122, 20);
+		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		panel_1.add(lblNewLabel_1_1_1);
+		
+		txtid = new JTextField();
+		txtid.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyReleased(KeyEvent e) {
 
-		try {
-			while(result.next()) {
-				cb.addItem(result.getString(1).trim());
-			}
-			result.close();
-		}
-		catch (Exception ex) {System.out.println(ex);}
-
-		cb.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "Select * from rdv where id = '" + medic + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblName.setText(result.getString("nom_patient"));
-						lblLastName.setText(result.getString("prenom_patient"));
-						lblMail.setText(result.getString("mail_patient"));
-						lblNameDoc.setText(result.getString("nom_medecin"));
-						lblDate.setText(result.getString("date"));
-						lblHeure.setText(result.getString("heure"));
-					}
-					result.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				 
+				 try {
+					 
+						DbConnection Connect = new DbConnection();
+						Connection cnx = Connect.dbConnection();
+				           
+				             String id = txtid.getText();
+				 
+				             String requetes = "select nom_patient, prenom_patient, nom_medecin from rdv where id = '" + id + "'";
+				                 
+				                 ResultSet resultat = Connect.Requete(cnx, requetes);
+				                 
+				                 //resultat.updateString(1, id);
+				 
+				             if(resultat.next()==true)
+				             {
+				               
+				                 String name = resultat.getString(1);
+				                 String lastname = resultat.getString(2);
+				                 String speciality = resultat.getString(3);
+				                 
+				                 txtname.setText(name);
+				                 txtlastname.setText(lastname);
+				                 txtspeciality.setText(speciality);
+				                 
+				                 
+				             }   
+				             else
+				             {
+				              txtname.setText("");
+				              txtlastname.setText("");
+				                 txtspeciality.setText("");
+				                  
+				             }
+				             
+				 
+				 
+				         } 
+				 
+				 catch (SQLException ex) {
+				            
+				         }
 			}
 		});
+		txtid.setBounds(50, 27, 41, 20);
+		txtid.setColumns(10);
+		panel_1.add(txtid);
 		
+		JButton btnDelete = new JButton("Supprimer");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+
+                String bid;
+bid  = txtid.getText();
+
+try {
+
+	String requetes3 = "delete from rdv where id = '" + bid + "'";
+Connect.Requete_prepare(cnx, requetes3);
+     JOptionPane.showMessageDialog(null, "Compte supprimé !");
+     table_load();
+    
+     txtname.setText("");
+     txtlastname.setText("");
+     txtspeciality.setText("");
+     txtname.requestFocus();
+}
+
+     catch (Exception e1) {
+
+e1.printStackTrace();
+}
+				
+			}
+		});
+		btnDelete.setForeground(Color.WHITE);
+		btnDelete.setBackground(Color.RED);
+		btnDelete.setBounds(68, 441, 100, 37);
+		frame.getContentPane().add(btnDelete);
+		
+		JButton btnExit = new JButton("Actualiser");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				table_load();
+			}
+		});
+		btnExit.setForeground(Color.WHITE);
+		btnExit.setBackground(Color.ORANGE);
+		btnExit.setBounds(593, 441, 100, 37);
+		frame.getContentPane().add(btnExit);
 	}
 }
