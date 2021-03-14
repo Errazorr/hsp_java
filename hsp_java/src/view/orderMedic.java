@@ -182,7 +182,9 @@ public class orderMedic {
 		order.getContentPane().add(btnOrderNew);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\medoc.jpg"));
+		String chemin = "medoc.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 385, 504);
 		order.getContentPane().add(lblNewLabel);
 		

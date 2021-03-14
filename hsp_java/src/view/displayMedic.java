@@ -133,7 +133,9 @@ public class displayMedic {
 		Display.getContentPane().add(txtDangers);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\medoc.jpg"));
+		String chemin = "medoc.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 391, 504);
 		Display.getContentPane().add(lblNewLabel);
 	

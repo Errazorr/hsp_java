@@ -157,7 +157,9 @@ public class rdv {
 		Rdv.getContentPane().add(btnNewButton_5);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\work.jpg"));
+		String chemin = "work.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 409, 504);
 		Rdv.getContentPane().add(lblNewLabel);
 		

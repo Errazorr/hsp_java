@@ -169,7 +169,9 @@ public class addMedic {
 		Add.getContentPane().add(btnBack);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\medoc.jpg"));
+		String chemin = "medoc.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 380, 515);
 		Add.getContentPane().add(lblNewLabel);
 		

@@ -176,7 +176,9 @@ public class stock {
 		Stock.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\1.jpg"));
+		String chemin = "1.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, -27, 391, 564);
 		Stock.getContentPane().add(lblNewLabel);
 		

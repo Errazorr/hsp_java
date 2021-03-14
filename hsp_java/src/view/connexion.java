@@ -76,7 +76,9 @@ public class connexion extends global {
 		connexion.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\zIb0C.jpg"));
+		String chemin = "zIb0C.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 379, 504);
 		connexion.getContentPane().add(lblNewLabel);
 		

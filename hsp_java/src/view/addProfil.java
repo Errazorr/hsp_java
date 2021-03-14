@@ -194,7 +194,9 @@ public class addProfil {
 		
 		
 		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\patient2.jpg"));
+		String chemin = "patient2.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel_1.setIcon(new ImageIcon(resource));
 		lblNewLabel_1.setBounds(-22, 0, 359, 506);
 		panel_1.add(lblNewLabel_1);
 

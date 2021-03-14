@@ -50,64 +50,64 @@ public class displayOrder {
 	private void initialize() {
 		dispOrder = new JFrame();
 		dispOrder.getContentPane().setBackground(Color.DARK_GRAY);
-		dispOrder.setBounds(100, 100, 600, 511);
+		dispOrder.setBounds(100, 100, 767, 543);
 		dispOrder.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		dispOrder.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel_1 = new JLabel("Commandes");
 		lblNewLabel_1.setForeground(Color.ORANGE);
 		lblNewLabel_1.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
-		lblNewLabel_1.setBounds(0, 139, 300, 189);
+		lblNewLabel_1.setBounds(51, 135, 300, 189);
 		dispOrder.getContentPane().add(lblNewLabel_1);
 
 		JComboBox cb = new JComboBox();
-		cb.setBounds(342, 56, 215, 22);
+		cb.setBounds(456, 72, 215, 22);
 		dispOrder.getContentPane().add(cb);
 
 		JLabel lblManuf = new JLabel("Fabricant");
 		lblManuf.setForeground(Color.WHITE);
-		lblManuf.setBounds(360, 121, 80, 14);
+		lblManuf.setBounds(474, 137, 80, 14);
 		dispOrder.getContentPane().add(lblManuf);
 
 		JLabel lblQty = new JLabel("Quantit\u00E9 command\u00E9e");
 		lblQty.setForeground(Color.WHITE);
-		lblQty.setBounds(360, 180, 135, 14);
+		lblQty.setBounds(474, 196, 135, 14);
 		dispOrder.getContentPane().add(lblQty);
 
 		JLabel lblLots = new JLabel("Lots de 50");
 		lblLots.setForeground(Color.WHITE);
-		lblLots.setBounds(487, 217, 70, 14);
+		lblLots.setBounds(601, 233, 70, 14);
 		dispOrder.getContentPane().add(lblLots);
 
 		JLabel lblDate = new JLabel("Date de la commande");
 		lblDate.setForeground(Color.WHITE);
-		lblDate.setBounds(360, 250, 135, 14);
+		lblDate.setBounds(474, 266, 135, 14);
 		dispOrder.getContentPane().add(lblDate);
 
 		JLabel lblOrderDate = new JLabel("");
 		lblOrderDate.setForeground(Color.CYAN);
-		lblOrderDate.setBounds(360, 287, 109, 14);
+		lblOrderDate.setBounds(474, 303, 109, 14);
 		dispOrder.getContentPane().add(lblOrderDate);
 
 		JLabel lblError = new JLabel("");
 		lblError.setForeground(Color.GREEN);
-		lblError.setBounds(377, 423, 197, 14);
+		lblError.setBounds(491, 439, 197, 14);
 		dispOrder.getContentPane().add(lblError);
 
 		JLabel lblOrderManuf = new JLabel("");
 		lblOrderManuf.setForeground(Color.CYAN);
-		lblOrderManuf.setBounds(360, 146, 180, 14);
+		lblOrderManuf.setBounds(474, 162, 180, 14);
 		dispOrder.getContentPane().add(lblOrderManuf);
 
 		JLabel lblOrderQty = new JLabel("");
 		lblOrderQty.setForeground(Color.CYAN);
-		lblOrderQty.setBounds(360, 217, 109, 14);
+		lblOrderQty.setBounds(474, 233, 109, 14);
 		dispOrder.getContentPane().add(lblOrderQty);
 
 		JButton btnBack = new JButton("Retour");
 		btnBack.setForeground(Color.WHITE);
 		btnBack.setBackground(Color.RED);
-		btnBack.setBounds(68, 412, 135, 23);
+		btnBack.setBounds(114, 447, 135, 23);
 		dispOrder.getContentPane().add(btnBack);
 
 		DbConnection Connect = new DbConnection();
@@ -195,7 +195,7 @@ public class displayOrder {
 				}
 			}
 		});
-		btnValid.setBounds(360, 330, 180, 23);
+		btnValid.setBounds(474, 346, 180, 23);
 		dispOrder.getContentPane().add(btnValid);
 		
 		JButton btnDelete = new JButton("Annuler la commande");
@@ -208,14 +208,16 @@ public class displayOrder {
 				lblError.setText("Commande annulée");
 			}
 		});
-		btnDelete.setBounds(360, 389, 180, 23);
+		btnDelete.setBounds(474, 405, 180, 23);
 		dispOrder.getContentPane().add(btnDelete);
 		
 		JLabel lbl = new JLabel("");
-		lbl.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\medoc.jpg"));
+		String chemin = "medoc.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lbl.setIcon(new ImageIcon(resource));
 		lbl.setForeground(Color.ORANGE);
 		lbl.setFont(new Font("Monotype Corsiva", Font.PLAIN, 63));
-		lbl.setBounds(0, 0, 300, 472);
+		lbl.setBounds(0, 0, 370, 504);
 		dispOrder.getContentPane().add(lbl);
 	}
 }

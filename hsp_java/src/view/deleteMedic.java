@@ -95,7 +95,9 @@ public class deleteMedic extends global {
 		Delete.getContentPane().add(btnDelete);
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\GONCALVES_Na\\Pictures\\medoc.jpg"));
+		String chemin = "medoc.jpg";
+		String resource = getClass().getClassLoader().getResource(chemin).getPath();
+		lblNewLabel.setIcon(new ImageIcon(resource));
 		lblNewLabel.setBounds(0, 0, 384, 504);
 		Delete.getContentPane().add(lblNewLabel);
 		
