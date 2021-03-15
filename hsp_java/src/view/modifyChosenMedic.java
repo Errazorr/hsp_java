@@ -27,21 +27,7 @@ public class modifyChosenMedic extends global{
 	private JTextField txtQty;
 	boolean success;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					modifyChosenMedic window = new modifyChosenMedic();
-					window.ModifyChosen.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.

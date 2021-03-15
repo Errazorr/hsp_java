@@ -21,21 +21,6 @@ public class confirmDeleteMedic extends global {
 	JFrame DeleteConfirm;
 	boolean success;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					confirmDeleteMedic window = new confirmDeleteMedic();
-					window.DeleteConfirm.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the application.

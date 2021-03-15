@@ -35,22 +35,7 @@ public class viewDoc {
 	private JTable table;
 	private JTextField txtid;
 
-	/**
-	 * Launch the application.
-	 * @wbp.parser.entryPoint
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					viewDoc window = new viewDoc();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.

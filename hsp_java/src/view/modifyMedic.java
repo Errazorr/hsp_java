@@ -29,21 +29,7 @@ public class modifyMedic extends global {
 
 	JFrame Modify;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					modifyMedic window = new modifyMedic();
-					window.Modify.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.

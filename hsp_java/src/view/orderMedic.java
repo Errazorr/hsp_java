@@ -34,18 +34,7 @@ public class orderMedic {
 	private JTextField txtOrderQty;
 
 	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					orderMedic window = new orderMedic();
-					window.order.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+
 
 	/**
 	 * Create the application.
