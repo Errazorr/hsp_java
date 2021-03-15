@@ -1,5 +1,6 @@
 package view;
 
+import javahsp.javamail.*;
 import java.awt.EventQueue;
 import manager.methods;
 
