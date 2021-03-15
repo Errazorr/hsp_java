@@ -13,6 +13,9 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import db_connexion.DbConnection;
@@ -264,8 +267,13 @@ e1.printStackTrace();
 					XSSFWorkbook excelJTableExporter = new XSSFWorkbook(); 
 					XSSFSheet excelSheet = excelJTableExporter.createSheet("JTable Sheet");
 					
-					for (int i = 0; i < 10; i++) {
-						for (int j = 0;)
+					for (int i = 0; i < model.getRowCount(); i++) {
+						XSSFRow excelRow = excelSheet.createRow(i);
+						for (int j = 0; j < model.getColumnCount(); j++) {
+							XSSFCell excelCell = excelRow.createCell(j);
+							
+							excelCell.setCellValue(model);
+						}
 					}
 				}
 			}
