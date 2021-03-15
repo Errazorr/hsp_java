@@ -17,7 +17,7 @@ import javax.swing.JSeparator;
 
 public class rdv {
 
-	JFrame Rdv;
+	public JFrame Rdv;
 
 
 
@@ -65,7 +65,7 @@ public class rdv {
 			public void actionPerformed(ActionEvent e) {
 				Rdv.dispose();
 				addProfil window = new addProfil();
-				window.frame.setVisible(true);
+				window.add_profil.setVisible(true);
 			}
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
@@ -92,7 +92,7 @@ public class rdv {
 				try {
 					Rdv.dispose();
 					addRDV window = new addRDV();
-					window.frame.setVisible(true);
+					window.add_rdv.setVisible(true);
 				}
 
 			catch (Exception ex) {

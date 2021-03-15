@@ -1,5 +1,6 @@
 package view;
 import global_variable.*;
+import manager.methods;
 
 import java.awt.EventQueue;
 import java.sql.ResultSet;
@@ -29,13 +30,8 @@ import java.awt.Font;
 public class connexion extends global {
 
 	JFrame connexion;
-	private JTextField txt_id;
-	private JPasswordField PasswordField;
-
-	/**
-	 * Launch the application.
-	 */
-	
+	JTextField txt_id;
+	JPasswordField PasswordField;
 
 	/**
 	 * Create the application.
@@ -112,34 +108,8 @@ public class connexion extends global {
 				
 		btnConnexion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				DbConnection Connect = new DbConnection();
-			    Connection cnx = Connect.dbConnection();
-				String requete = "Select * from compte where mail='" + txt_id.getText() + "' and mdp='" + PasswordField.getText() + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				
-				try {
-					while(result.next()) { // va parcourir chaque ligne du result
-						//System.out.println("Connecté !");
-						
-						requete = "Select id from compte where mail='" + txt_id.getText() + "'";
-						ResultSet result_id = Connect.Requete(cnx, requete);
-						while(result_id.next()) {
-							id = result_id.getInt(1);
-							result_id.close();
-							connexion.dispose();
-							index window = new index();
-							window.index.setVisible(true);
-							result.close();
-						}
-					}
-					
-					lblError.setText("Mail ou mot de passe incorrect");
-				} 
-				catch (Exception ex) {
-					//System.out.println(ex);
-				}
-				
+				methods Methode = new methods();
+				Methode.se_connecter(txt_id.getText(), PasswordField.getText(), lblError, connexion);
 			}
 		});
 		

@@ -3,6 +3,7 @@ package view;
 
 import db_connexion.DbConnection;
 import global_variable.*;
+import manager.methods;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -24,9 +25,9 @@ import java.awt.Font;
 public class addMedic {
 
 	JFrame Add;
-	private JTextField textName;
-	private JTextField textSupplier;
-	private JTextField textQuantity;
+	JTextField textName;
+	JTextField textSupplier;
+	JTextField textQuantity;
 
 	/**
 	 * Create the application.
@@ -114,24 +115,8 @@ public class addMedic {
 		btnAddMedic.setForeground(Color.WHITE);
 		btnAddMedic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "Select * from stock where nom='" + textName.getText() + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblError.setForeground(Color.RED);
-						lblError.setText("Ce médicament est déjà enregistré");
-						return;
-					}
-					requete = "INSERT INTO stock(nom, fabricant, qte, danger) VALUES('" + textName.getText() + "', '" 
-							+ textSupplier.getText()  + "', '" + textQuantity.getText()  + "', '" + textPotentialDangers.getText() + "')";
-					Connect.Requete_prepare(cnx, requete);
-					lblError.setForeground(Color.GREEN);
-					lblError.setText("Médicament bien enregistré");
-
-				}
-				catch (Exception ex) {
-
-				}
+				methods Methode = new methods();
+				Methode.ajouter_medic(textName.getText(), lblError, textSupplier.getText(), textQuantity.getText(), textPotentialDangers.getText());
 			}
 		});
 		btnAddMedic.setBounds(526, 429, 96, 27);

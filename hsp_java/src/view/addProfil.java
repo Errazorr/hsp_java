@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.EventQueue;
+import manager.methods;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -25,17 +26,17 @@ import javax.swing.ImageIcon;
 
 public class addProfil {
 
-	JFrame frame;
-	private JTextField textName;
-	private JTextField textLastName;
-	private JTextField textMail;
-	private JTextField textPhone;
-	private JTextField textMutuelle;
-	private JTextField textSecu;
-	private JLabel lblError;
+	JFrame add_profil;
+	JTextField textName;
+	JTextField textLastName;
+	JTextField textMail;
+	JTextField textPhone;
+	JTextField textMutuelle;
+	JTextField textSecu;
+	JLabel lblError;
 	boolean success;
-	private JButton btnNewButton_1;
-	private JPanel panel_1;
+	JButton btnNewButton_1;
+	JPanel panel_1;
 
 
 	/**
@@ -46,13 +47,13 @@ public class addProfil {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the add_profil.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 766, 543);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		add_profil = new JFrame();
+		add_profil.setBounds(100, 100, 766, 543);
+		add_profil.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		add_profil.getContentPane().setLayout(null);
 		
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
@@ -61,13 +62,13 @@ public class addProfil {
 		
 		lblError = new JLabel("");
 		lblError.setBounds(35, 11, 336, 14);
-		frame.getContentPane().add(lblError);
+		add_profil.getContentPane().add(lblError);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.DARK_GRAY);
 		panel.setBorder(new CompoundBorder());
 		panel.setBounds(0, -27, 424, 598);
-		frame.getContentPane().add(panel);
+		add_profil.getContentPane().add(panel);
 		panel.setLayout(null);
 		
 		JLabel Name = new JLabel("Nom patient");
@@ -155,7 +156,7 @@ public class addProfil {
 		panel_1 = new JPanel();
 		panel_1.setBackground(Color.WHITE);
 		panel_1.setBounds(423, 0, 347, 506);
-		frame.getContentPane().add(panel_1);
+		add_profil.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Corazon App. \u00A9");
@@ -171,7 +172,7 @@ public class addProfil {
 		btnNewButton_1.setBackground(Color.RED);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				add_profil.dispose();
 				rdv window = new rdv();
 				window.Rdv.setVisible(true);
 			}
@@ -188,26 +189,8 @@ public class addProfil {
 
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "Select * from patient where nom='" + Name.getText() + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblError.setText("Ce compte existe déjà.");
-						return;
-					}
-					requete = "INSERT INTO patient(nom, prenom, mail, tel, mutuelle, secu) VALUES('" + textName.getText() + "', '" 
-							+ textLastName.getText()  + "', '" + textMail.getText()  + "', '" + textPhone.getText()  + "', '" + textMutuelle.getText() + "', '" + textSecu.getText()
-							.toString() + "')";
-					success = Connect.Requete_prepare(cnx, requete);
-					
-					frame.dispose();
-					addRDV window = new addRDV();
-					window.frame.setVisible(true);
-
-				}
-				catch (Exception ex) {
-
-				}
+				methods Methode = new methods();
+				Methode.ajouter_profil(Name.getText(), lblError, textName.getText(), textLastName.getText(), textMail.getText(), textPhone.getText(), textMutuelle.getText(), textSecu.getText().toString(), add_profil);
 			}
 		});
 	}
