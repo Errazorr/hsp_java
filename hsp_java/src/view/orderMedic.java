@@ -137,7 +137,6 @@ public class orderMedic {
 
 		JLabel lblError = new JLabel("");
 		lblError.setBounds(426, 56, 314, 14);
-		lblError.setForeground(Color.GREEN);
 		order.getContentPane().add(lblError);
 
 		JButton btnDisplayOrders = new JButton("Afficher commandes");
@@ -225,8 +224,15 @@ public class orderMedic {
 					String actualDate = formatter.format(date);
 					String requete = "INSERT INTO commande(nom_medicament, fabricant, qte, date) VALUES('" + cb.getSelectedItem().toString() + "', '" 
 							+ lblManufacturerName.getText()  + "', '" + txtOrderQty.getText()  + "', '" + actualDate + "')";
-					Connect.Requete_prepare(cnx, requete);
-					lblError.setText("Commande passée avec succès");
+					boolean success = Connect.Requete_prepare(cnx, requete);
+					if (success) {
+						lblError.setForeground(Color.GREEN);
+						lblError.setText("Commande passée avec succès");
+					} else {
+						lblError.setForeground(Color.RED);
+						lblError.setText("Erreur, commande annulée");
+					}
+					
 				}
 				catch (Exception ex) {
 
