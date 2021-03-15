@@ -136,6 +136,7 @@ public class addMedic {
 					while(result.next()) {
 						lblError.setForeground(Color.RED);
 						lblError.setText("Ce médicament est déjà enregistré");
+						return;
 					}
 					requete = "INSERT INTO stock(nom, fabricant, qte, danger) VALUES('" + textName.getText() + "', '" 
 							+ textSupplier.getText()  + "', '" + textQuantity.getText()  + "', '" + textPotentialDangers.getText() + "')";

@@ -205,6 +205,7 @@ public class addRDV {
 				try {
 					while(result.next()) {
 						lblError.setText("Le rendez-vous existe déjà!");
+						return;
 					}
 					requete = "INSERT INTO rdv(nom_patient, prenom_patient, mail_patient, nom_medecin, date, heure) VALUES('" + txtName.getText() + "', '" 
 							+ txtLastName.getText()  + "', '" + txtMail.getText()  + "', '" + cbMed.getSelectedItem().toString()  + "', '" + date.getDate() + "',"

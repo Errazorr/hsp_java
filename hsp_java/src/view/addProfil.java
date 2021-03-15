@@ -208,6 +208,7 @@ public class addProfil {
 				try {
 					while(result.next()) {
 						lblError.setText("Ce compte existe déjà.");
+						return;
 					}
 					requete = "INSERT INTO patient(nom, prenom, mail, tel, mutuelle, secu) VALUES('" + textName.getText() + "', '" 
 							+ textLastName.getText()  + "', '" + textMail.getText()  + "', '" + textPhone.getText()  + "', '" + textMutuelle.getText() + "', '" + textSecu.getText()
