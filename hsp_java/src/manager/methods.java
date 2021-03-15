@@ -3,6 +3,7 @@ package manager;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 import global_variable.*;
@@ -118,6 +119,40 @@ public class methods extends global{
 		}
 		catch (Exception ex) {
 
+		}
+	}
+	
+	
+	//METHODE DE CONFIRMATION DE SUPPRESSION D'UN MEDICAMENT
+	public void confirm_delete(boolean success, JLabel lblSuccess) {
+		String requete = "Delete from stock where nom='" + medic + "'";
+		success = Connect.Requete_prepare(cnx, requete);
+		
+		if (success == true) {
+			lblSuccess.setForeground(Color.GREEN);
+			lblSuccess.setText("Médicament supprimé avec succès");
+		}
+		else {
+			lblSuccess.setForeground(Color.RED);
+			lblSuccess.setText("Suppression échouée");
+		}
+	}
+	
+	
+	
+	public void disp_medic(String medic, JLabel name, JLabel manuf, JLabel qty, JLabel dangers) {
+		String requete = "Select * from stock where nom = '" + medic + "'";
+		ResultSet result = Connect.Requete(cnx, requete);
+		try {
+			while(result.next()) {
+				name.setText(result.getString("nom"));
+				manuf.setText(result.getString("fabricant"));
+				qty.setText(result.getString("qte"));
+				dangers.setText(result.getString("danger"));
+			}
+			result.close();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
 		}
 	}
 }

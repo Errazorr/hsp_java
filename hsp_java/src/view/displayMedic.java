@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import manager.methods;
 
 import javax.swing.JFrame;
 import javax.swing.JComboBox;
@@ -140,20 +141,9 @@ public class displayMedic {
 
 		cb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "Select * from stock where nom = '" + medic + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblMedicName.setText(result.getString("nom"));
-						lblMedicManufacturer.setText(result.getString("fabricant"));
-						lblMedicQty.setText(result.getString("qte"));
-						txtDangers.setText(result.getString("danger"));
-					}
-					result.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				
+				methods Methode = new methods();
+				Methode.disp_medic(cb.getSelectedItem().toString(), lblMedicName, lblMedicManufacturer, lblMedicQty, lblDanger);
 			}
 		});
 	}

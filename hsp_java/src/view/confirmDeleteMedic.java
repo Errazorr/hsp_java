@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import global_variable.*;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import manager.methods;
 
 import db_connexion.DbConnection;
 
@@ -64,17 +65,8 @@ public class confirmDeleteMedic extends global {
 		btnDelete.setBackground(Color.GRAY);
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "Delete from stock where nom='" + medic + "'";
-				success = Connect.Requete_prepare(cnx, requete);
-				
-				if (success == true) {
-					lblSuccess.setForeground(Color.GREEN);
-					lblSuccess.setText("Médicament supprimé avec succès");
-				}
-				else {
-					lblSuccess.setForeground(Color.RED);
-					lblSuccess.setText("Suppression échouée");
-				}
+				methods Methode = new methods();
+				Methode.confirm_delete(success, lblSuccess);
 			}
 		});
 		btnDelete.setBounds(335, 262, 89, 23);
