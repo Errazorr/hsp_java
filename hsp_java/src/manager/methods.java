@@ -15,6 +15,7 @@ import db_connexion.DbConnection;
 import view.addRDV;
 import view.index;
 import view.rdv;
+import view.stock;
 
 public class methods extends global{
 	
@@ -142,7 +143,7 @@ public class methods extends global{
 	}
 	
 	
-	
+	//METHODE POUR AFFICHER LES DONNEES D'UN MEDICAMENT
 	public void disp_medic(String medic, JLabel name, JLabel manuf, JLabel qty, JLabel dangers) {
 		String requete = "Select * from stock where nom = '" + medic + "'";
 		ResultSet result = Connect.Requete(cnx, requete);
@@ -156,6 +157,58 @@ public class methods extends global{
 			result.close();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
+		}
+	}
+	
+	
+	//METHODE POUR AFFICHER LES COMMANDES DE MEDICAMENT
+	public void disp_order(String medic, JLabel manuf, JLabel qty, JLabel date) {
+		String requete = "Select * from commande where nom_medicament = '" + medic + "'";
+		ResultSet result = Connect.Requete(cnx, requete);
+		try {
+			while(result.next()) {
+				manuf.setText(result.getString("fabricant"));
+				qty.setText(result.getString("qte"));
+				date.setText(result.getString("date"));
+			}
+			result.close();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	
+	public void go_to_rdv(JLabel lblError) {
+		String requete = "Select * from compte where id='" + id + "' and acces_rdv= '1'";
+		ResultSet result = Connect.Requete(cnx, requete);
+		try {
+			while(result.next()) {
+				index.dispose();
+				rdv window = new rdv();
+				window.Rdv.setVisible(true);
+			}
+			lblError.setText("Accès aux rdv refusé");
+		}
+		catch (Exception ex) {
+			
+		}
+	}
+	
+	
+	public void go_to_stock(JLabel lblError) {
+		String requete = "Select * from compte where id='" + id + "' and acces_stock= '1'";
+		ResultSet result = Connect.Requete(cnx, requete);
+		try {
+			while(result.next()) {
+				index.dispose();
+				stock window = new stock();
+				window.Stock.setVisible(true);
+			}
+
+			lblError.setText("Accès au stock refusé");
+		}
+		catch (Exception ex) {
+			
 		}
 	}
 }
