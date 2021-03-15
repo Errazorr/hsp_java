@@ -50,7 +50,7 @@ public class JavaMailUtil {
 			message.setFrom(new InternetAddress(MyAccountEmail));
 			message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
 			message.setSubject("Corazon App - Inscription");
-			message.setText("Votre inscription a bien été enregistrée");
+			message.setText("Le compte patient a bien été enregistré");
 			return message;
 		} catch (Exception ex) {
 			Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE, null, ex);
