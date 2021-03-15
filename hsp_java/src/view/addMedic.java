@@ -114,8 +114,8 @@ public class addMedic {
 		Add.getContentPane().add(textQuantity);
 
 		JLabel lblError = new JLabel("");
-		lblError.setForeground(Color.RED);
-		lblError.setBounds(32, 324, 266, 27);
+		lblError.setForeground(Color.GREEN);
+		lblError.setBounds(459, 85, 239, 27);
 		Add.getContentPane().add(lblError);
 
 		JTextArea textPotentialDangers = new JTextArea();
@@ -134,11 +134,14 @@ public class addMedic {
 				ResultSet result = Connect.Requete(cnx, requete);
 				try {
 					while(result.next()) {
+						lblError.setForeground(Color.RED);
 						lblError.setText("Ce médicament est déjà enregistré");
 					}
 					requete = "INSERT INTO stock(nom, fabricant, qte, danger) VALUES('" + textName.getText() + "', '" 
 							+ textSupplier.getText()  + "', '" + textQuantity.getText()  + "', '" + textPotentialDangers.getText() + "')";
 					Connect.Requete_prepare(cnx, requete);
+					lblError.setForeground(Color.GREEN);
+					lblError.setText("Médicament bien enregistré");
 
 				}
 				catch (Exception ex) {
