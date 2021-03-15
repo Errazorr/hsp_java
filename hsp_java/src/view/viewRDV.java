@@ -11,12 +11,16 @@ import java.awt.BorderLayout;
 import java.awt.Font;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import db_connexion.DbConnection;
 import net.proteanit.sql.DbUtils;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import java.awt.event.ActionListener;
@@ -246,5 +250,29 @@ e1.printStackTrace();
 		btnExit.setBackground(Color.ORANGE);
 		btnExit.setBounds(593, 441, 100, 37);
 		frame.getContentPane().add(btnExit);
+		
+		JButton btnExporter = new JButton("Exporter");
+		btnExporter.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser excelFileChooser = new JFileChooser("C:\\Users\\FONTAINE_Ry\\Documents");
+				excelFileChooser.setDialogTitle("Sauvegarder comme");
+				FileNameExtensionFilter fnef = new FileNameExtensionFilter("EXCEL FILES", "xls", "xlxs", "xlsm"); 
+				excelFileChooser.setFileFilter(fnef);
+				int excelChooser = excelFileChooser.showSaveDialog(null);
+				
+				if (excelChooser == JFileChooser.APPROVE_OPTION) {
+					XSSFWorkbook excelJTableExporter = new XSSFWorkbook(); 
+					XSSFSheet excelSheet = excelJTableExporter.createSheet("JTable Sheet");
+					
+					for (int i = 0; i < 10; i++) {
+						for (int j = 0;)
+					}
+				}
+			}
+		});
+		btnExporter.setForeground(Color.WHITE);
+		btnExporter.setBackground(Color.ORANGE);
+		btnExporter.setBounds(259, 441, 100, 37);
+		frame.getContentPane().add(btnExporter);
 	}
 }
