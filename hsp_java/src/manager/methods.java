@@ -1,5 +1,6 @@
 package manager;
 
+import javahsp.javamail.*;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -74,7 +75,7 @@ public class methods extends global{
 	
 	//METHODE POUR AJOUTE UN PROFIL
 	public void ajouter_profil(String Name, JLabel lblError, String nom, String nom_famille, String mail, String phone, String mutuelle, String secu, JFrame frame) {
-		String requete = "Select * from patient where nom='" + Name + "'";
+		String requete = "Select * from patient where mail='" + mail + "'";
 		ResultSet result = Connect.Requete(cnx, requete);
 		try {
 			while(result.next()) {
@@ -85,6 +86,8 @@ public class methods extends global{
 					+ nom_famille  + "', '" + mail  + "', '" + phone  + "', '" + mutuelle + "', '" + secu + "')";
 			Connect.Requete_prepare(cnx, requete);
 			
+			JavaMail Mail = new JavaMail();
+			Mail.send_mail(mail);
 			frame.dispose();
 			addRDV window = new addRDV();
 			window.add_rdv.setVisible(true);
