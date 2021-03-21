@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import global_variable.*;
+import manager.methods;
+
 import javax.swing.JFrame;
 
 import db_connexion.DbConnection;
@@ -40,6 +42,19 @@ public class deleteMedic extends global {
 		Delete.setBounds(100, 100, 766, 543);
 		Delete.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Delete.getContentPane().setLayout(null);
+		
+		JButton btnNewButton = new JButton("Retour");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Delete.dispose();
+				stock window = new stock();
+				window.Stock.setVisible(true);
+			}
+		});
+		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setForeground(Color.WHITE);
+		btnNewButton.setBounds(141, 459, 89, 23);
+		Delete.getContentPane().add(btnNewButton);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Supprimer");
 		lblNewLabel_1_1.setForeground(Color.RED);
