@@ -129,10 +129,11 @@ public class methods extends global{
 	
 	//METHODE DE CONFIRMATION DE SUPPRESSION D'UN MEDICAMENT
 	public void confirm_delete(boolean success, JLabel lblSuccess) {
-		String requete = "Delete from stock where nom='" + medic + "'";
-		success = Connect.Requete_prepare(cnx, requete);
+		String requete3 = "delete from stock where nom = '" + medic + "'";
+		success = Connect.Requete_prepare(cnx, requete3);
+		System.out.println(requete3);
 		
-		if (success == true) {
+		if (success) {
 			lblSuccess.setForeground(Color.GREEN);
 			lblSuccess.setText("Médicament supprimé avec succès");
 		}
