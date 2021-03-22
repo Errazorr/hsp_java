@@ -86,17 +86,18 @@ public class viewRDV {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.getContentPane().setBackground(Color.DARK_GRAY);
+		frame.getContentPane().setBackground(Color.GRAY);
 		frame.setBounds(100, 100, 766, 543);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("M\u00E9decin");
+		JLabel lblNewLabel = new JLabel("Rendez-vous");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel.setBounds(327, 38, 130, 37);
+		lblNewLabel.setBounds(259, 38, 234, 37);
 		frame.getContentPane().add(lblNewLabel);
 
 		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Enregistrement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(31, 192, 176, 238);
 		frame.getContentPane().add(panel);

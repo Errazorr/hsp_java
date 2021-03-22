@@ -71,8 +71,9 @@ public class index extends global{
 		//btn_rdv.setBackground(new Color(255, 215, 0));
 		btn_rdv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				index.dispose();
 				methods Methode = new methods();
-				Methode.go_to_stock(lblError2);
+				Methode.go_to_rdv(lblError2);
 			}
 		});
 		
@@ -102,6 +103,7 @@ public class index extends global{
 		//btn_stock.setBackground(new Color(0, 255, 127));
 		btn_stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				index.dispose();
 				methods Methode = new methods();
 				Methode.go_to_stock(lblError1);
 			}
