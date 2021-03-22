@@ -174,7 +174,7 @@ public class addProfil {
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				add_profil.dispose();
-				rdv window = new rdv();
+				rdv window = new rdv();	
 				window.Rdv.setVisible(true);
 			}
 		});

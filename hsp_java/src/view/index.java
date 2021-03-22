@@ -2,6 +2,7 @@ package view;
 
 import global_variable.*;
 import java.awt.EventQueue;
+import manager.methods;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -70,19 +71,8 @@ public class index extends global{
 		//btn_rdv.setBackground(new Color(255, 215, 0));
 		btn_rdv.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "Select * from compte where id='" + id + "' and acces_rdv= '1'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						index.dispose();
-						rdv window = new rdv();
-						window.Rdv.setVisible(true);
-					}
-					lblError2.setText("Accès aux rdv refusé");
-				}
-				catch (Exception ex) {
-					
-				}
+				methods Methode = new methods();
+				Methode.go_to_stock(lblError2);
 			}
 		});
 		
@@ -112,20 +102,8 @@ public class index extends global{
 		//btn_stock.setBackground(new Color(0, 255, 127));
 		btn_stock.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "Select * from compte where id='" + id + "' and acces_stock= '1'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						index.dispose();
-						stock window = new stock();
-						window.Stock.setVisible(true);
-					}
-
-					lblError1.setText("Accès au stock refusé");
-				}
-				catch (Exception ex) {
-					
-				}
+				methods Methode = new methods();
+				Methode.go_to_stock(lblError1);
 			}
 		});
 		

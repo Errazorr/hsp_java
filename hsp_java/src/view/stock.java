@@ -18,7 +18,7 @@ import javax.swing.JSeparator;
 
 public class stock {
 
-	JFrame Stock;
+	public JFrame Stock;
 
 
 

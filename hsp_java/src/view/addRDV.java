@@ -68,12 +68,12 @@ public class addRDV {
 		lblNewLabel_3.setBackground(UIManager.getColor("CheckBox.highlight"));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_3.setForeground(new Color(240, 255, 240));
-		lblNewLabel_3.setBounds(121, 373, 202, 59);
+		lblNewLabel_3.setBounds(120, 321, 202, 59);
 		panel.add(lblNewLabel_3);
 		
 		JButton btnBack = new JButton("Retour");
 		btnBack.setBackground(Color.RED);
-		btnBack.setBounds(156, 11, 89, 23);
+		btnBack.setBounds(166, 443, 89, 23);
 		panel.add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,7 +98,7 @@ public class addRDV {
 		});
 		btnNewButton_1.setForeground(Color.WHITE);
 		btnNewButton_1.setBackground(Color.BLUE);
-		btnNewButton_1.setBounds(131, 428, 158, 32);
+		btnNewButton_1.setBounds(130, 367, 158, 32);
 		panel.add(btnNewButton_1);
 		
 		txtName = new JTextField();

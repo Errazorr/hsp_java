@@ -9,6 +9,8 @@ import java.sql.SQLException;
 
 import javax.swing.JFrame;
 import db_connexion.DbConnection;
+import manager.methods;
+
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -111,19 +113,8 @@ public class displayOrder {
 
 		cb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "Select * from commande where nom_medicament = '" + medic + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblOrderManuf.setText(result.getString("fabricant"));
-						lblOrderQty.setText(result.getString("qte"));
-						lblOrderDate.setText(result.getString("date"));
-					}
-					result.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				methods Methode = new methods();
+				Methode.disp_order(cb.getSelectedItem().toString(), lblOrderManuf, lblOrderQty, lblOrderDate);
 			}
 		});
 
