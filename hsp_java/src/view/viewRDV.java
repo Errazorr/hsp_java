@@ -1,6 +1,6 @@
 package view;
 
-import java.awt.EventQueue; 
+import java.awt.EventQueue;
 import java.sql.*;
 import java.util.TreeMap;
 
@@ -18,6 +18,7 @@ import javax.swing.table.TableModel;
 
 import db_connexion.DbConnection;
 import net.proteanit.sql.DbUtils;
+import manager.methods;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -39,44 +40,32 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class viewRDV {
-	
+
 	JFrame frame;
 	private JTextField txtname;
 	private JTextField txtlastname;
 	private JTextField txtspeciality;
-	private JTable jTable1;
+	private JTable table;
 	private JTextField txtid;
-	
-
 
 	/**
 	 * Create the application.
+	 * 
 	 * @wbp.parser.entryPoint
 	 */
 	public viewRDV() {
 		initialize();
-		table_load();
+		methods Methode = new methods();
+		Methode.table_load_rdv(table);
 	}
 
-	
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	public void table_load()
-	{
-		DbConnection Connect = new DbConnection();
-		Connection cnx = Connect.dbConnection();
-		String requete = "Select * from rdv";
-		ResultSet result = Connect.Requete(cnx, requete);
-
-		jTable1.setModel(DbUtils.resultSetToTableModel(result));
-
-
-	}
-
 
 	/**
 	 * Initialize the contents of the frame.
+	 * 
 	 * @wbp.parser.entryPoint
 	 */
 	private void initialize() {
@@ -93,7 +82,9 @@ public class viewRDV {
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
-		panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Enregistrement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel.setBorder(new TitledBorder(
+				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
+				"Enregistrement", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel.setBounds(31, 192, 176, 238);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
@@ -150,13 +141,15 @@ public class viewRDV {
 		scrollPane.setBounds(217, 114, 522, 316);
 		frame.getContentPane().add(scrollPane);
 
-		jTable1 = new JTable();
-		jTable1.setBackground(Color.WHITE);
-		scrollPane.setViewportView(jTable1);
+		table = new JTable();
+		table.setBackground(Color.WHITE);
+		scrollPane.setViewportView(table);
 
 		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(Color.LIGHT_GRAY);
-		panel_1.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Rechercher", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		panel_1.setBorder(new TitledBorder(
+				new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
+				"Rechercher", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		panel_1.setBounds(31, 115, 176, 66);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
@@ -171,49 +164,8 @@ public class viewRDV {
 		txtid.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyReleased(KeyEvent e) {
-
-
-				try {
-
-					DbConnection Connect = new DbConnection();
-					Connection cnx = Connect.dbConnection();
-
-					String id = txtid.getText();
-
-					String requetes = "select nom_patient, prenom_patient, nom_medecin from rdv where id = '" + id + "'";
-
-					ResultSet resultat = Connect.Requete(cnx, requetes);
-
-					//resultat.updateString(1, id);
-
-					if(resultat.next()==true)
-					{
-
-						String name = resultat.getString(1);
-						String lastname = resultat.getString(2);
-						String speciality = resultat.getString(3);
-
-						txtname.setText(name);
-						txtlastname.setText(lastname);
-						txtspeciality.setText(speciality);
-
-
-					}   
-					else
-					{
-						txtname.setText("");
-						txtlastname.setText("");
-						txtspeciality.setText("");
-
-					}
-
-
-
-				} 
-
-				catch (SQLException ex) {
-
-				}
+				methods Methode = new methods();
+				Methode.display_rdv_info(txtid, txtname, txtlastname, txtspeciality);
 			}
 		});
 		txtid.setBounds(50, 27, 41, 20);
@@ -223,29 +175,8 @@ public class viewRDV {
 		JButton btnDelete = new JButton("Supprimer");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-
-				String bid;
-				bid  = txtid.getText();
-
-				try {
-
-					String requetes3 = "delete from rdv where id = '" + bid + "'";
-					Connect.Requete_prepare(cnx, requetes3);
-					JOptionPane.showMessageDialog(null, "Compte supprimé !");
-					table_load();
-
-					txtname.setText("");
-					txtlastname.setText("");
-					txtspeciality.setText("");
-					txtname.requestFocus();
-				}
-
-				catch (Exception e1) {
-
-					e1.printStackTrace();
-				}
-
+				methods Methode = new methods();
+				Methode.delete_rdv(txtid, txtname, txtlastname, txtspeciality, table);
 			}
 		});
 		btnDelete.setForeground(Color.WHITE);
@@ -256,7 +187,8 @@ public class viewRDV {
 		JButton btnExit = new JButton("Actualiser");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				table_load();
+				methods Methode = new methods();
+				Methode.table_load_rdv(table);
 			}
 		});
 		btnExit.setForeground(Color.WHITE);
@@ -269,7 +201,7 @@ public class viewRDV {
 			JTable model;
 
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		btnExporter.setForeground(Color.WHITE);

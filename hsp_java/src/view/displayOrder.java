@@ -135,41 +135,8 @@ public class displayOrder {
 		JButton btnValid = new JButton("Valider la commande");
 		btnValid.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "Select qte from commande where nom_medicament = '" + medic + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						int Order_Qte = result.getInt("qte");
-						requete = "Select qte from stock where nom = '" + medic + "'";
-						result = Connect.Requete(cnx, requete);
-						try {
-							while(result.next()) {
-								int Actual_Qte = result.getInt("qte");
-								int total_qte = Order_Qte + Actual_Qte;
-								requete = "Update stock set qte = '" + total_qte + "' where nom = '" + medic + "'";
-								success = Connect.Requete_prepare(cnx, requete);
-
-								if (success == true) {
-									lblError.setForeground(Color.GREEN);
-									lblError.setText("Commande validée");
-									requete = "delete from commande where nom_medicament = '" + medic + "'";
-									Connect.Requete_prepare(cnx, requete);
-								}
-								else {
-									lblError.setForeground(Color.RED);
-									lblError.setText("Erreur");
-								}
-								
-							}
-						} catch (SQLException e1) {
-							e1.printStackTrace();
-						}
-					}
-					result.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				methods Methode = new methods();
+				Methode.validate_order(cb.getSelectedItem().toString(), success , lblError);
 			}
 		});
 		btnValid.setBounds(474, 346, 180, 23);
@@ -178,11 +145,8 @@ public class displayOrder {
 		JButton btnDelete = new JButton("Annuler la commande");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "delete from commande where nom_medicament = '" + medic + "'";
-				Connect.Requete_prepare(cnx, requete);
-				lblError.setForeground(Color.GREEN);
-				lblError.setText("Commande annulée");
+				methods Methode = new methods();
+				Methode.delete_order(cb.getSelectedItem().toString(), lblError);
 			}
 		});
 		btnDelete.setBounds(474, 405, 180, 23);

@@ -23,6 +23,7 @@ import javax.swing.JTextField;
 
 import global_variable.*;
 import db_connexion.DbConnection;
+import manager.methods;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -186,57 +187,16 @@ public class orderMedic {
 
 		cb.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String medic = cb.getSelectedItem().toString();
-				String requete = "Select * from stock where nom = '" + medic + "'";
-				ResultSet result = Connect.Requete(cnx, requete);
-				try {
-					while(result.next()) {
-						lblManufacturerName.setText(result.getString("fabricant"));
-						lblActualQty.setText(result.getString("qte"));
-						int acutalQty = Integer.parseInt(result.getString("qte"));
-
-						txtOrderQty.addKeyListener(new KeyAdapter() {
-							public void keyReleased(KeyEvent e) {
-								try {
-									int orderQty = Integer.parseInt(txtOrderQty.getText());
-									int newQty = acutalQty + orderQty;
-									lblNewQty.setText("-> "+newQty);
-								}
-								catch(Exception ex) {
-
-								}
-							}
-						});
-					}
-					result.close();
-				} catch (SQLException e1) {
-					e1.printStackTrace();
-				}
+				methods Methode = new methods();
+				Methode.display_medic_info(cb.getSelectedItem().toString(), lblManufacturerName, lblActualQty, txtOrderQty, lblNewQty);
 			}
 		});
 
 
 		btnOrder.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					Date date = new Date();
-					SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-					String actualDate = formatter.format(date);
-					String requete = "INSERT INTO commande(nom_medicament, fabricant, qte, date) VALUES('" + cb.getSelectedItem().toString() + "', '" 
-							+ lblManufacturerName.getText()  + "', '" + txtOrderQty.getText()  + "', '" + actualDate + "')";
-					boolean success = Connect.Requete_prepare(cnx, requete);
-					if (success) {
-						lblError.setForeground(Color.GREEN);
-						lblError.setText("Commande passée avec succès");
-					} else {
-						lblError.setForeground(Color.RED);
-						lblError.setText("Erreur, commande annulée");
-					}
-					
-				}
-				catch (Exception ex) {
-
-				}
+				methods Methode = new methods();
+				Methode.order(cb.getSelectedItem().toString(), lblManufacturerName, txtOrderQty, lblError);
 			}
 		});
 	}

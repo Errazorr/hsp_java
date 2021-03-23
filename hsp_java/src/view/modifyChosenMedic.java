@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import db_connexion.DbConnection;
-
+import manager.methods;
 import javax.swing.JTextArea;
 
 import global_variable.*;
@@ -22,9 +22,9 @@ import java.awt.Font;
 public class modifyChosenMedic extends global{
 
 	JFrame ModifyChosen;
-	private JTextField txtName;
-	private JTextField txtFabriquant;
-	private JTextField txtQty;
+	JTextField txtName;
+	JTextField txtFabriquant;
+	JTextField txtQty;
 	boolean success;
 
 
@@ -134,17 +134,8 @@ public class modifyChosenMedic extends global{
 
 		btnSave.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String requete = "update stock set nom = '" + txtName.getText() + "', fabricant = '" + txtFabriquant.getText() + "', qte = '"+  txtQty.getText() + "', danger = '" + txtDangers.getText() + "' where id='" + id + "'";
-				success = Connect.Requete_prepare(cnx, requete);
-
-				if (success == true) {
-					lblSuccess.setForeground(Color.GREEN);
-					lblSuccess.setText("Modifications enregistrées");
-				}
-				else {
-					lblSuccess.setForeground(Color.RED);
-					lblSuccess.setText("Modifications échouées");
-				}
+				methods Methode = new methods();
+				Methode.modify_medic(txtName.getText(), txtFabriquant.getText(), txtQty.getText(), txtDangers.getText(), success, lblSuccess);
 			}
 		});
 
