@@ -35,7 +35,6 @@ public class methods extends global {
 
 		try {
 			while (result.next()) { // va parcourir chaque ligne du result
-				// System.out.println("Connecté !");
 
 				requete = "Select id from compte where mail='" + txt_id + "'";
 				ResultSet result_id = Connect.Requete(cnx, requete);
@@ -51,7 +50,6 @@ public class methods extends global {
 
 			lblError.setText("Mail ou mot de passe incorrect");
 		} catch (Exception ex) {
-			// System.out.println(ex);
 		}
 	}
 
@@ -174,7 +172,8 @@ public class methods extends global {
 			e1.printStackTrace();
 		}
 	}
-
+	
+	//METHODE POUR ACCEDER OUN NON AUX RDV
 	public void go_to_rdv(JLabel lblError) {
 		String requete = "Select * from compte where id='" + id + "' and acces_rdv= '1'";
 		ResultSet result = Connect.Requete(cnx, requete);
@@ -190,6 +189,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR ACCEDER OU NON AUX STOCKS
 	public void go_to_stock(JLabel lblError) {
 		String requete = "Select * from compte where id='" + id + "' and acces_stock= '1'";
 		ResultSet result = Connect.Requete(cnx, requete);
@@ -206,6 +206,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR VALIDER UNE COMMANDE
 	public void validate_order(String Selected_item, boolean success, JLabel lblError) {
 		String medic = Selected_item;
 		String requete = "Select qte from commande where nom_medicament = '" + medic + "'";
@@ -243,6 +244,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE SUPPRIMER UNE COMMANDE
 	public void delete_order(String Selecte_item, JLabel lblError) {
 		String medic = Selecte_item;
 		String requete = "delete from commande where nom_medicament = '" + medic + "'";
@@ -251,6 +253,7 @@ public class methods extends global {
 		lblError.setText("Commande annulée");
 	}
 
+	//METHODE POUR MODIFIER LES DONNEES D'UN MEDECIN
 	public void modify_medic(String txtName, String txtFabriquant, String txtQty, String txtDangers, boolean success,
 			JLabel lblSuccess) {
 		String requete = "update stock set nom = '" + txtName + "', fabricant = '" + txtFabriquant + "', qte = '"
@@ -266,6 +269,7 @@ public class methods extends global {
 		}
 	}
 
+	//AFFICHER LES DONNEES D'UN MEDICAMENT
 	public void display_medic_info(String Selected_item, JLabel lblManufacturerName, JLabel lblActualQty,
 			JTextField txtOrderQty, JLabel lblNewQty) {
 		String medic = Selected_item;
@@ -295,6 +299,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR PASSER UNE COMMANDE
 	public void order(String Selected_item, JLabel lblManufacturerName, JTextField txtOrderQty, JLabel lblError) {
 		try {
 			Date date = new Date();
@@ -317,6 +322,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR METTRE A JOUR/AFFICHER LE TABLEAU
 	public void table_load_medecin(JTable table) {
 		DbConnection Connect = new DbConnection();
 		Connection cnx = Connect.dbConnection();
@@ -337,6 +343,7 @@ public class methods extends global {
 
 	}
 
+	//METHODE POUR AJOUTER UN MEDECIN
 	public void add_medecin(JTextField txtname, JTextField txtlastname, JTextField txtspeciality, JTable table) {
 		String name, lastname, speciality;
 
@@ -364,6 +371,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR AFFICHER LES DONNEES D'UN MEDECIN
 	public void display_medecin_info(JTextField txtid, JTextField txtname, JTextField txtlastname, JTextField txtspeciality) {
 		try {
 
@@ -402,7 +410,7 @@ public class methods extends global {
 		}
 	}
 	
-	
+	//METHODE POUR MODIFIER ET METTRE A JOUR LES DONNES D'UN MEDECIN
 	public void update_medecin_info(JTextField txtid, JTextField txtname, JTextField txtlastname, JTextField txtspeciality, JTable table) {
 		String name, lastname, speciality, id;
 
@@ -433,7 +441,7 @@ public class methods extends global {
 		}
 	}
 	
-	
+	//METHODE POUR SUPPRIMER UN MEDECIN
 	public void delete_medecin(JTextField txtid, JTextField txtname, JTextField txtlastname, JTextField txtspeciality, JTable table) {
 		String bid;
 		bid = txtid.getText();
@@ -458,7 +466,7 @@ public class methods extends global {
 		}
 	}
 	
-	
+	//METHODE POUR AFFICHER LES DONNES DE RDV
 	public void display_rdv_info(JTextField txtid, JTextField txtname, JTextField txtlastname, JTextField txtspeciality) {
 		try {
 
@@ -498,6 +506,7 @@ public class methods extends global {
 		}
 	}
 
+	//METHODE POUR SUPPRIMER UN RDV
 	public void delete_rdv(JTextField txtid, JTextField txtname, JTextField txtlastname, JTextField txtspeciality, JTable table) {
 		String bid;
 		bid = txtid.getText();
